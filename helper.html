@@ -2,12 +2,872 @@
 <html lang="kk">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Көмекші | Қауіпсіз шешім зертханасы</title>
+<title>Қауіпсіздік көмекшісі</title>
 
-    <link rel="stylesheet" href="./style.css?v=70">
+<style>
+
+/* =========================================================
+   BASE
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #f5f2eb;
+    --white: #ffffff;
+
+    --navy: #123f50;
+    --navy-dark: #0c3442;
+
+    --teal: #078d83;
+    --teal-dark: #06756f;
+    --teal-soft: #eaf4f2;
+
+    --text: #173044;
+    --muted: #687981;
+
+    --line: #cddcdd;
+    --soft: #f1f6f5;
+
+    --warning: #a56b2d;
+    --warning-bg: #fff8e9;
+
+    --danger: #a54d4d;
+    --danger-bg: #fff1f1;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    line-height: 1.5;
+}
+
+button,
+a {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    width: min(1180px, calc(100% - 48px));
+    margin: 34px auto 70px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    background: var(--navy);
+    color: white;
+
+    border-radius: 28px;
+
+    padding: 34px 38px;
+}
+
+.hero-label {
+    color: #a8d5d3;
+
+    font-size: 13px;
+    font-weight: 850;
+
+    letter-spacing: 1.2px;
+
+    margin-bottom: 16px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 5vw, 56px);
+    line-height: 1.05;
+
+    letter-spacing: -1px;
+
+    margin-bottom: 16px;
+}
+
+.hero p {
+    color: #e0eeee;
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   NAV
+========================================================= */
+
+.navigation {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+
+    gap: 12px;
+
+    margin: 25px 4px;
+}
+
+.nav-link {
+    min-height: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px;
+
+    border: 1px solid var(--line);
+    border-radius: 12px;
+
+    background: white;
+
+    color: var(--text);
+
+    text-decoration: none;
+    text-align: center;
+
+    font-size: 14px;
+    font-weight: 750;
+
+    transition: .2s;
+}
+
+.nav-link:hover {
+    border-color: var(--teal);
+    transform: translateY(-2px);
+}
+
+.nav-link.active {
+    background: var(--teal);
+    border-color: var(--teal);
+
+    color: white;
+}
+
+
+/* =========================================================
+   TOP SAFETY NOTICE
+========================================================= */
+
+.safety-notice {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 17px 20px;
+
+    margin-bottom: 16px;
+
+    border: 1px solid #dec7a1;
+    border-radius: 17px;
+
+    background: var(--warning-bg);
+}
+
+.notice-icon {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: var(--warning);
+    color: white;
+
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.safety-notice strong {
+    display: block;
+
+    margin-bottom: 2px;
+
+    font-size: 14px;
+}
+
+.safety-notice p {
+    color: #756a5a;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
+
+.helper-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.3fr)
+        minmax(330px, .7fr);
+
+    gap: 18px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   CHAT
+========================================================= */
+
+.chat-panel {
+    min-height: 670px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    border: 1px solid var(--line);
+    border-radius: 24px;
+
+    background: white;
+}
+
+
+/* CHAT HEADER */
+
+.chat-header {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 17px 20px;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.avatar {
+    width: 46px;
+    height: 46px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 14px;
+
+    background: var(--teal);
+    color: white;
+
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.chat-header-info {
+    flex: 1;
+}
+
+.chat-header-info strong,
+.chat-header-info span {
+    display: block;
+}
+
+.chat-header-info strong {
+    font-size: 14px;
+}
+
+.chat-header-info span {
+    margin-top: 2px;
+
+    color: var(--teal);
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.restart-button {
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--line);
+    border-radius: 11px;
+
+    background: white;
+    color: var(--text);
+
+    font-size: 17px;
+}
+
+
+/* PROGRESS */
+
+.helper-progress {
+    padding: 14px 20px 12px;
+
+    border-bottom: 1px solid var(--line);
+
+    background: #fbfcfc;
+}
+
+.progress-head {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 7px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+    font-weight: 750;
+}
+
+.progress-track {
+    height: 7px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: #e5eeee;
+}
+
+.progress-fill {
+    width: 15%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background: var(--teal);
+
+    transition: width .4s ease;
+}
+
+
+/* MESSAGES */
+
+.chat-body {
+    flex: 1;
+
+    min-height: 420px;
+    max-height: 520px;
+
+    overflow-y: auto;
+
+    padding: 24px;
+
+    background: #f8faf9;
+}
+
+.message {
+    max-width: 74%;
+
+    margin-bottom: 10px;
+
+    padding: 13px 15px;
+
+    border-radius: 17px;
+
+    font-size: 13px;
+    line-height: 1.55;
+
+    animation: messageIn .25s ease;
+}
+
+.bot-message {
+    border: 1px solid var(--line);
+    border-bottom-left-radius: 5px;
+
+    background: white;
+}
+
+.user-message {
+    margin-left: auto;
+
+    border-bottom-right-radius: 5px;
+
+    background: var(--teal);
+    color: white;
+}
+
+@keyframes messageIn {
+    from {
+        opacity: 0;
+        transform: translateY(7px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* TYPING */
+
+.typing {
+    display: inline-flex;
+
+    gap: 4px;
+
+    margin-bottom: 10px;
+
+    padding: 11px 14px;
+
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    border-bottom-left-radius: 5px;
+
+    background: white;
+}
+
+.typing span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #8b999e;
+
+    animation: typingDot 1s infinite;
+}
+
+.typing span:nth-child(2) {
+    animation-delay: .15s;
+}
+
+.typing span:nth-child(3) {
+    animation-delay: .3s;
+}
+
+@keyframes typingDot {
+    0%, 60%, 100% {
+        transform: translateY(0);
+    }
+
+    30% {
+        transform: translateY(-4px);
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ACTION BUTTONS */
+
+.chat-actions {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    padding: 15px 18px 18px;
+
+    border-top: 1px solid var(--line);
+
+    background: white;
+}
+
+.quick-reply {
+    padding: 10px 13px;
+
+    border: 1px solid var(--line);
+    border-radius: 12px;
+
+    background: white;
+
+    color: var(--text);
+
+    font-size: 11px;
+    font-weight: 750;
+
+    transition: .18s;
+}
+
+.quick-reply:hover {
+    border-color: var(--teal);
+
+    background: var(--teal-soft);
+    color: var(--teal);
+}
+
+.quick-reply.danger-choice {
+    border-color: #dfb6b6;
+
+    color: var(--danger);
+
+    background: #fffafa;
+}
+
+
+/* =========================================================
+   SAFETY PLAN
+========================================================= */
+
+.plan-panel {
+    position: sticky;
+    top: 18px;
+
+    padding: 25px;
+
+    border: 1px solid var(--line);
+    border-radius: 24px;
+
+    background: white;
+}
+
+.plan-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 10px;
+
+    padding-bottom: 16px;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.plan-header span:first-child {
+    color: var(--teal);
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: .9px;
+}
+
+.plan-status {
+    padding: 5px 8px;
+
+    border-radius: 8px;
+
+    background: var(--soft);
+    color: var(--muted);
+
+    font-size: 9px;
+    font-weight: 850;
+}
+
+.plan-status.ready {
+    background: var(--teal-soft);
+    color: var(--teal);
+}
+
+.plan-status.urgent {
+    background: var(--danger-bg);
+    color: var(--danger);
+}
+
+
+/* EMPTY */
+
+.plan-empty {
+    padding: 58px 8px;
+
+    text-align: center;
+}
+
+.plan-empty-icon {
+    width: 62px;
+    height: 62px;
+
+    margin: 0 auto 14px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: var(--teal-soft);
+    color: var(--teal);
+
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.plan-empty h3 {
+    font-size: 18px;
+
+    margin-bottom: 5px;
+}
+
+.plan-empty p {
+    color: var(--muted);
+
+    font-size: 11px;
+    line-height: 1.55;
+}
+
+
+/* PLAN CONTENT */
+
+.plan-content {
+    padding-top: 20px;
+}
+
+.plan-category {
+    display: inline-block;
+
+    margin-bottom: 8px;
+    padding: 6px 9px;
+
+    border-radius: 8px;
+
+    background: var(--teal-soft);
+    color: var(--teal);
+
+    font-size: 9px;
+    font-weight: 900;
+}
+
+.plan-content h2 {
+    font-size: 24px;
+    line-height: 1.2;
+
+    margin-bottom: 18px;
+}
+
+
+/* PLAN STEPS */
+
+.plan-steps {
+    display: grid;
+
+    gap: 9px;
+}
+
+.plan-step {
+    display: grid;
+
+    grid-template-columns: 38px 1fr;
+
+    gap: 11px;
+
+    align-items: center;
+
+    min-height: 62px;
+
+    padding: 12px;
+
+    border-radius: 13px;
+
+    background: var(--soft);
+}
+
+.plan-step strong {
+    width: 35px;
+    height: 35px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 10px;
+
+    background: white;
+    color: var(--teal);
+
+    font-size: 11px;
+}
+
+.plan-step p {
+    font-size: 11px;
+    line-height: 1.45;
+}
+
+
+/* PHRASE */
+
+.plan-phrase {
+    margin-top: 15px;
+
+    padding: 17px;
+
+    border-radius: 16px;
+
+    background: var(--navy);
+    color: white;
+}
+
+.plan-phrase span {
+    color: #9cd8d4;
+
+    font-size: 9px;
+    font-weight: 900;
+
+    letter-spacing: .8px;
+}
+
+.plan-phrase p {
+    margin: 7px 0 13px;
+
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.copy-button {
+    padding: 8px 11px;
+
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 9px;
+
+    background: rgba(255,255,255,.08);
+    color: white;
+
+    font-size: 9px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   BOTTOM CARDS
+========================================================= */
+
+.bottom-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-top: 18px;
+}
+
+.info-card {
+    padding: 19px;
+
+    border: 1px solid var(--line);
+    border-radius: 18px;
+
+    background: white;
+}
+
+.info-number {
+    color: var(--teal);
+
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.info-card h3 {
+    margin: 20px 0 5px;
+
+    font-size: 15px;
+}
+
+.info-card p {
+    color: var(--muted);
+
+    font-size: 11px;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .navigation {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .helper-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .plan-panel {
+        position: static;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .container {
+        width: calc(100% - 24px);
+
+        margin-top: 12px;
+    }
+
+    .hero {
+        padding: 25px 20px;
+
+        border-radius: 20px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .navigation {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 8px;
+
+        margin: 15px 0;
+    }
+
+    .nav-link {
+        min-height: 49px;
+
+        font-size: 12px;
+    }
+
+    .chat-body {
+        padding: 17px;
+    }
+
+    .message {
+        max-width: 88%;
+    }
+
+    .bottom-info {
+        grid-template-columns: 1fr;
+    }
+
+    .safety-notice {
+        align-items: flex-start;
+    }
+
+}
+
+</style>
+
 </head>
 
 
@@ -15,272 +875,1256 @@
 
 <div class="container">
 
-    <header class="hero small-hero">
 
-        <div class="hero-label">
-            ҚАУІПСІЗДІК КӨМЕКШІСІ
-        </div>
+<!-- ========================================================
+     HERO
+======================================================== -->
 
-        <h1>
-            Қазір не істеу керек?
-        </h1>
+<header class="hero">
+
+    <div class="hero-label">
+        ҚАУІПСІЗДІК КӨМЕКШІСІ
+    </div>
+
+    <h1>
+        Қазір не істеу керек?
+    </h1>
+
+    <p>
+        Жағдайды таңда → қауіпсіз қадамды анықта → ересекке не айту керегін ал
+    </p>
+
+</header>
+
+
+<!-- ========================================================
+     NAV
+======================================================== -->
+
+<nav class="navigation">
+
+    <a href="index.html" class="nav-link">
+        Басты бет
+    </a>
+
+    <a href="diagnostic.html" class="nav-link">
+        Диагностика
+    </a>
+
+    <a href="situations.html" class="nav-link">
+        12 жағдаят
+    </a>
+
+    <a href="practice.html" class="nav-link">
+        Жаттығу
+    </a>
+
+    <a href="helper.html" class="nav-link active">
+        Көмекші
+    </a>
+
+    <a href="teacher.html" class="nav-link">
+        Мұғалімге
+    </a>
+
+</nav>
+
+
+<!-- ========================================================
+     NOTICE
+======================================================== -->
+
+<section class="safety-notice">
+
+    <div class="notice-icon">
+        !
+    </div>
+
+    <div>
+
+        <strong>
+            Бұл көмекші жедел қызмет емес
+        </strong>
 
         <p>
-            Жағдайды таңда → қауіпсіз қадамды анықта → ересекке не айту керегін ал
+            Егер дәл қазір тікелей қауіп болса,
+            алдымен қауіпсіз жерге бар және жақын сенімді ересекке хабарла.
         </p>
 
-    </header>
+    </div>
+
+</section>
 
 
-    <nav class="navigation">
+<!-- ========================================================
+     MAIN
+======================================================== -->
 
-        <a href="index.html" class="nav-link">
-            Басты бет
-        </a>
-
-        <a href="diagnostic.html" class="nav-link">
-            Диагностика
-        </a>
-
-        <a href="situations.html" class="nav-link">
-            12 жағдаят
-        </a>
-
-        <a href="practice.html" class="nav-link">
-            Жаттығу
-        </a>
-
-        <a href="helper.html" class="nav-link active">
-            Көмекші
-        </a>
-
-        <a href="teacher.html" class="nav-link">
-            Мұғалімге
-        </a>
-
-    </nav>
+<main class="helper-layout">
 
 
-    <div class="helper-alert">
+<!-- CHAT -->
 
-        <div class="helper-alert-icon">
-            !
+<section class="chat-panel">
+
+    <div class="chat-header">
+
+        <div class="avatar">
+            Q
         </div>
 
-        <div>
+        <div class="chat-header-info">
+
             <strong>
-                Бұл көмекші жедел қызмет емес
+                Қауіпсіздік көмекшісі
             </strong>
 
-            <p>
-                Егер дәл қазір тікелей қауіп болса,
-                алдымен қауіпсіз жерге бар және сенімді ересекке хабарла.
-            </p>
+            <span>
+                ● қадамдық көмек
+            </span>
+
+        </div>
+
+        <button
+            class="restart-button"
+            onclick="restartHelper()"
+            title="Қайта бастау">
+            ↻
+        </button>
+
+    </div>
+
+
+    <!-- progress -->
+
+    <div class="helper-progress">
+
+        <div class="progress-head">
+
+            <span>
+                ҚАУІПСІЗ ЖОСПАР ҚҰРУ
+            </span>
+
+            <span id="progressText">
+                1 / 3
+            </span>
+
+        </div>
+
+        <div class="progress-track">
+
+            <div
+                class="progress-fill"
+                id="progressFill">
+            </div>
+
         </div>
 
     </div>
 
 
-    <main class="helper-pro-layout">
+    <!-- messages -->
 
-        <!-- CHAT -->
-
-        <section class="helper-pro-chat">
-
-            <div class="helper-chat-head">
-
-                <div class="helper-avatar">
-                    Q
-                </div>
-
-                <div>
-
-                    <strong>
-                        Қауіпсіздік көмекшісі
-                    </strong>
-
-                    <span>
-                        ● қадамдық көмек
-                    </span>
-
-                </div>
+    <div
+        class="chat-body"
+        id="chatBody">
+    </div>
 
 
-                <button onclick="restartHelper()"
-                        class="helper-restart">
-                    ↻
-                </button>
+    <!-- typing -->
+
+    <div
+        id="typingWrapper"
+        class="hidden"
+        style="padding: 0 24px; background:#f8faf9;">
+
+        <div class="typing">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </div>
+
+
+    <!-- actions -->
+
+    <div
+        class="chat-actions"
+        id="chatActions">
+    </div>
+
+</section>
+
+
+<!-- SAFETY PLAN -->
+
+<aside class="plan-panel">
+
+    <div class="plan-header">
+
+        <span>
+            ҚАУІПСІЗ ЖОСПАР
+        </span>
+
+        <div
+            class="plan-status"
+            id="planStatus">
+
+            күтілуде
+
+        </div>
+
+    </div>
+
+
+    <!-- empty -->
+
+    <div
+        class="plan-empty"
+        id="planEmpty">
+
+        <div class="plan-empty-icon">
+            ?
+        </div>
+
+        <h3>
+            Әзірге жоспар жоқ
+        </h3>
+
+        <p>
+            Көмекшінің сұрақтарына жауап бергеннен кейін
+            осы жерде сенің келесі қауіпсіз қадамдарың пайда болады.
+        </p>
+
+    </div>
+
+
+    <!-- content -->
+
+    <div
+        class="plan-content hidden"
+        id="planContent">
+
+        <span
+            class="plan-category"
+            id="planCategory">
+
+            ЖАҒДАЙ
+
+        </span>
+
+        <h2 id="planTitle">
+            Қауіпсіз қадам
+        </h2>
+
+
+        <div class="plan-steps">
+
+            <div class="plan-step">
+
+                <strong>
+                    01
+                </strong>
+
+                <p id="planStep1"></p>
+
+            </div>
+
+
+            <div class="plan-step">
+
+                <strong>
+                    02
+                </strong>
+
+                <p id="planStep2"></p>
 
             </div>
 
 
-            <div id="helperMessages"
-                 class="helper-chat-body">
-            </div>
+            <div class="plan-step">
 
+                <strong>
+                    03
+                </strong>
 
-            <div id="typingIndicator"
-                 class="typing-indicator hidden">
-
-                <span></span>
-                <span></span>
-                <span></span>
+                <p id="planStep3"></p>
 
             </div>
-
-
-            <div id="helperActions"
-                 class="helper-actions">
-            </div>
-
-        </section>
-
-
-        <!-- PLAN -->
-
-        <aside class="safety-plan"
-               id="safetyPlan">
-
-            <div class="safety-plan-head">
-
-                <span>
-                    ҚАУІПСІЗ ЖОСПАР
-                </span>
-
-                <div id="planStatus"
-                     class="plan-status">
-                    күтілуде
-                </div>
-
-            </div>
-
-
-            <div id="planEmpty"
-                 class="plan-empty">
-
-                <div class="plan-empty-icon">
-                    ?
-                </div>
-
-                <h3>
-                    Әзірге жоспар жоқ
-                </h3>
-
-                <p>
-                    Көмекші сұрақтарына жауап бергенде
-                    осы жерде сенің келесі қадамдарың пайда болады.
-                </p>
-
-            </div>
-
-
-            <div id="planContent"
-                 class="hidden">
-
-                <h2 id="planTitle">
-                    Қауіпсіз қадам
-                </h2>
-
-
-                <div class="plan-steps">
-
-                    <div>
-
-                        <strong>01</strong>
-
-                        <p id="planStep1"></p>
-
-                    </div>
-
-
-                    <div>
-
-                        <strong>02</strong>
-
-                        <p id="planStep2"></p>
-
-                    </div>
-
-
-                    <div>
-
-                        <strong>03</strong>
-
-                        <p id="planStep3"></p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="plan-phrase">
-
-                    <span>
-                        ЕРЕСЕККЕ АЙТАТЫН СӨЗ
-                    </span>
-
-                    <p id="planPhrase"></p>
-
-                    <button onclick="copyPlanPhrase()"
-                            id="copyPhraseButton">
-                        Көшіру
-                    </button>
-
-                </div>
-
-            </div>
-
-        </aside>
-
-    </main>
-
-
-    <section class="helper-bottom-info">
-
-        <div>
-
-            <strong>
-                Жеке дерек қажет емес
-            </strong>
-
-            <span>
-                Аты-жөніңді, мекенжайыңды немесе құпиясөзіңді жазба.
-            </span>
 
         </div>
 
 
-        <div>
-
-            <strong>
-                Жалғыз шешуге міндетті емессің
-            </strong>
+        <div class="plan-phrase">
 
             <span>
-                Қауіпсіздікке қатысты мәселені сенімді ересекпен бөлісуге болады.
+                ЕРЕСЕККЕ АЙТАТЫН СӨЗ
             </span>
+
+            <p id="planPhrase"></p>
+
+            <button
+                class="copy-button"
+                id="copyButton"
+                onclick="copyPhrase()">
+
+                Сөйлемді көшіру
+
+            </button>
 
         </div>
 
+    </div>
 
-        <div>
+</aside>
 
-            <strong>
-                Қауіпсіздік бірінші орында
-            </strong>
+</main>
 
-            <span>
-                Өзіңді қауіпке салып, біреуді тоқтатуға тырыспа.
-            </span>
 
+<!-- ========================================================
+     BOTTOM INFO
+======================================================== -->
+
+<section class="bottom-info">
+
+
+    <article class="info-card">
+
+        <div class="info-number">
+            01
         </div>
 
-    </section>
+        <h3>
+            Жеке дерек жазба
+        </h3>
+
+        <p>
+            Аты-жөніңді, мекенжайыңды,
+            телефон нөміріңді немесе құпиясөзіңді енгізудің қажеті жоқ.
+        </p>
+
+    </article>
+
+
+    <article class="info-card">
+
+        <div class="info-number">
+            02
+        </div>
+
+        <h3>
+            Жалғыз шешуге міндетті емессің
+        </h3>
+
+        <p>
+            Қауіпсіздікке қатысты жағдайды
+            сенімді ересекпен бөлісуге болады.
+        </p>
+
+    </article>
+
+
+    <article class="info-card">
+
+        <div class="info-number">
+            03
+        </div>
+
+        <h3>
+            Өзіңді қауіпке салма
+        </h3>
+
+        <p>
+            Біреуді тоқтату үшін өзіңді
+            қауіпті жағдайға кіргізуге болмайды.
+        </p>
+
+    </article>
+
+</section>
 
 </div>
 
 
-<script src="./helper.js?v=70"></script>
+
+<script>
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const chatBody =
+    document.getElementById("chatBody");
+
+const chatActions =
+    document.getElementById("chatActions");
+
+const typingWrapper =
+    document.getElementById("typingWrapper");
+
+const progressFill =
+    document.getElementById("progressFill");
+
+const progressText =
+    document.getElementById("progressText");
+
+
+/* =========================================================
+   MESSAGE FUNCTIONS
+========================================================= */
+
+function addBotMessage(text) {
+
+    const bubble =
+        document.createElement("div");
+
+    bubble.className =
+        "message bot-message";
+
+    bubble.textContent =
+        text;
+
+    chatBody.appendChild(bubble);
+
+    scrollChat();
+}
+
+
+function addUserMessage(text) {
+
+    const bubble =
+        document.createElement("div");
+
+    bubble.className =
+        "message user-message";
+
+    bubble.textContent =
+        text;
+
+    chatBody.appendChild(bubble);
+
+    scrollChat();
+}
+
+
+function scrollChat() {
+
+    chatBody.scrollTop =
+        chatBody.scrollHeight;
+}
+
+
+/* =========================================================
+   TYPING
+========================================================= */
+
+function botTyping(callback, delay = 650) {
+
+    typingWrapper.classList.remove("hidden");
+
+    setTimeout(() => {
+
+        typingWrapper.classList.add("hidden");
+
+        callback();
+
+    }, delay);
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+function setActions(items) {
+
+    chatActions.innerHTML = "";
+
+
+    items.forEach(item => {
+
+        const button =
+            document.createElement("button");
+
+        button.className =
+            "quick-reply";
+
+
+        if (item.danger) {
+            button.classList.add(
+                "danger-choice"
+            );
+        }
+
+
+        button.textContent =
+            item.label;
+
+
+        button.onclick = () => {
+
+            addUserMessage(
+                item.label
+            );
+
+            chatActions.innerHTML = "";
+
+            botTyping(
+                item.action
+            );
+        };
+
+
+        chatActions.appendChild(
+            button
+        );
+
+    });
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+function setProgress(step) {
+
+    const values = {
+        1: 20,
+        2: 55,
+        3: 100
+    };
+
+
+    progressFill.style.width =
+        values[step] + "%";
+
+
+    progressText.textContent =
+        step + " / 3";
+}
+
+
+/* =========================================================
+   PLAN
+========================================================= */
+
+function createPlan(data) {
+
+    document
+        .getElementById("planEmpty")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("planContent")
+        .classList.remove("hidden");
+
+
+    const status =
+        document.getElementById(
+            "planStatus"
+        );
+
+
+    status.textContent =
+        data.urgent
+            ? "шұғыл"
+            : "дайын";
+
+
+    status.className =
+        data.urgent
+            ? "plan-status urgent"
+            : "plan-status ready";
+
+
+    document.getElementById(
+        "planCategory"
+    ).textContent =
+        data.category;
+
+
+    document.getElementById(
+        "planTitle"
+    ).textContent =
+        data.title;
+
+
+    document.getElementById(
+        "planStep1"
+    ).textContent =
+        data.step1;
+
+
+    document.getElementById(
+        "planStep2"
+    ).textContent =
+        data.step2;
+
+
+    document.getElementById(
+        "planStep3"
+    ).textContent =
+        data.step3;
+
+
+    document.getElementById(
+        "planPhrase"
+    ).textContent =
+        `“${data.phrase}”`;
+
+
+    setProgress(3);
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+function startHelper() {
+
+    chatBody.innerHTML = "";
+
+    chatActions.innerHTML = "";
+
+
+    document
+        .getElementById("planContent")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("planEmpty")
+        .classList.remove("hidden");
+
+
+    document.getElementById(
+        "planStatus"
+    ).className =
+        "plan-status";
+
+
+    document.getElementById(
+        "planStatus"
+    ).textContent =
+        "күтілуде";
+
+
+    setProgress(1);
+
+
+    addBotMessage(
+        "Сәлем! Мен саған қауіпсіз келесі қадамды таңдауға көмектесемін."
+    );
+
+
+    setTimeout(() => {
+
+        addBotMessage(
+            "Алдымен ең маңыздысын анықтайық. Дәл қазір саған немесе басқа адамға тікелей қауіп төніп тұр ма?"
+        );
+
+
+        setActions([
+
+            {
+                label:
+                    "Иә, дәл қазір қауіп бар",
+
+                danger: true,
+
+                action:
+                    immediateDanger
+            },
+
+            {
+                label:
+                    "Қазір тікелей қауіп жоқ",
+
+                action:
+                    noImmediateDanger
+            },
+
+            {
+                label:
+                    "Досыма көмектескім келеді",
+
+                action:
+                    friendHelp
+            }
+
+        ]);
+
+    }, 500);
+}
+
+
+/* =========================================================
+   IMMEDIATE DANGER
+========================================================= */
+
+function immediateDanger() {
+
+    setProgress(2);
+
+
+    addBotMessage(
+        "Бірінші міндет — жағдайды өзің жалғыз тоқтатуға тырыспау."
+    );
+
+
+    setTimeout(() => {
+
+        addBotMessage(
+            "Қауіптен алыстап, адамдар бар қауіпсіз жерге бар. Жақын сенімді ересекке дереу хабарла."
+        );
+
+
+        createPlan({
+
+            urgent: true,
+
+            category:
+                "ҚАЗІР ҚАУІП БАР",
+
+            title:
+                "Алдымен қауіпсіз жерге бар",
+
+            step1:
+                "Қауіпті жерден алыста.",
+
+            step2:
+                "Адамдар бар қауіпсіз жерге бар.",
+
+            step3:
+                "Жақын сенімді ересекке дереу хабарла.",
+
+            phrase:
+                "Маған қазір көмек керек. Мен қауіпсіз емес жағдайдамын."
+
+        });
+
+
+        setActions([
+
+            {
+                label:
+                    "Басқа жағдайды қарау",
+
+                action:
+                    startHelper
+            }
+
+        ]);
+
+    }, 500);
+}
+
+
+/* =========================================================
+   CATEGORY SELECTION
+========================================================= */
+
+function noImmediateDanger() {
+
+    setProgress(2);
+
+
+    addBotMessage(
+        "Жақсы. Енді жағдайдың түрін анықтайық."
+    );
+
+
+    setActions([
+
+        {
+            label:
+                "Онлайнда біреу мазалап жүр",
+
+            action:
+                onlineHelp
+        },
+
+        {
+            label:
+                "Буллинг немесе мазақтау",
+
+            action:
+                bullyingHelp
+        },
+
+        {
+            label:
+                "Бейтаныс адам алаңдатады",
+
+            action:
+                strangerHelp
+        },
+
+        {
+            label:
+                "«Ешкімге айтпа» деді",
+
+            action:
+                secretHelp
+        },
+
+        {
+            label:
+                "Күмәнді сілтеме келді",
+
+            action:
+                linkHelp
+        },
+
+        {
+            label:
+                "Не істерімді білмеймін",
+
+            action:
+                unknownHelp
+        }
+
+    ]);
+}
+
+
+/* =========================================================
+   ONLINE
+========================================================= */
+
+function onlineHelp() {
+
+    addBotMessage(
+        "Жауап беруге асықпа. Жеке сурет, мекенжай, мектеп, пароль сияқты деректерді жіберме."
+    );
+
+
+    setTimeout(() => {
+
+        addBotMessage(
+            "Хабарламаны сенімді ересекке көрсет."
+        );
+
+
+        createPlan({
+
+            category:
+                "ОНЛАЙН ҚАУІП",
+
+            title:
+                "Жауап бермей, ересекке көрсет",
+
+            step1:
+                "Жеке ақпарат жіберме.",
+
+            step2:
+                "Күмәнді адаммен әңгімені жалғастырма.",
+
+            step3:
+                "Хабарламаны сенімді ересекке көрсет.",
+
+            phrase:
+                "Маған интернетте бір адам мазалап жазып жатыр. Осыны бірге қарап беріңізші."
+
+        });
+
+
+        finishActions();
+
+    }, 500);
+}
+
+
+/* =========================================================
+   BULLYING
+========================================================= */
+
+function bullyingHelp() {
+
+    addBotMessage(
+        "Өзіңді қосымша қауіпке салатын жанжалға кірме."
+    );
+
+
+    setTimeout(() => {
+
+        addBotMessage(
+            "Не болғанын және кімге көмек қажет екенін жауапты ересекке нақты айт."
+        );
+
+
+        createPlan({
+
+            category:
+                "БУЛЛИНГ",
+
+            title:
+                "Қауіпті күшейтпей көмек сұра",
+
+            step1:
+                "Мазаққа қосылма және оны таратпа.",
+
+            step2:
+                "Өзіңді қауіпті жанжалға салма.",
+
+            step3:
+                "Жауапты ересекке нақты хабарла.",
+
+            phrase:
+                "Бір оқушыны қайта-қайта мазақтап жүр. Осы жағдайды тоқтатуға көмектесіңізші."
+
+        });
+
+
+        finishActions();
+
+    }, 500);
+}
+
+
+/* =========================================================
+   STRANGER
+========================================================= */
+
+function strangerHelp() {
+
+    addBotMessage(
+        "Бейтаныс адамнан арақашықтық сақта."
+    );
+
+
+    setTimeout(() => {
+
+        addBotMessage(
+            "Онымен жалғыз барма және көлігіне отырма."
+        );
+
+
+        createPlan({
+
+            category:
+                "БЕЙТАНЫС АДАМ",
+
+            title:
+                "Арақашықтық сақта",
+
+            step1:
+                "Бейтаныс адаммен бірге барма.",
+
+            step2:
+                "Адамдар бар қауіпсіз жерге бар.",
+
+            step3:
+                "Сенімді ересекке хабарла.",
+
+            phrase:
+                "Маған бейтаныс адам жақындады. Мен қауіпсіз жерге келдім. Маған көмектесіңізші."
+
+        });
+
+
+        finishActions();
+
+    }, 500);
+}
+
+
+/* =========================================================
+   SECRET
+========================================================= */
+
+function secretHelp() {
+
+    addBotMessage(
+        "Қауіпсіздікке қатысты құпияны сақтауға міндетті емессің."
+    );
+
+
+    setTimeout(() => {
+
+        addBotMessage(
+            "Егер біреу қорқытып, «ешкімге айтпа» десе, сенімді ересекке айтуға болады."
+        );
+
+
+        createPlan({
+
+            category:
+                "ҚОРҚЫТУ",
+
+            title:
+                "Қауіпті құпияны жалғыз сақтама",
+
+            step1:
+                "Қорқытуға жалғыз жауап берме.",
+
+            step2:
+                "Қауіпсіз жерге бар.",
+
+            step3:
+                "Сенетін ересекке болған жағдайды айт.",
+
+            phrase:
+                "Маған бір адам бұл туралы ешкімге айтпауды айтып, қорқытты. Маған көмек керек."
+
+        });
+
+
+        finishActions();
+
+    }, 500);
+}
+
+
+/* =========================================================
+   LINK
+========================================================= */
+
+function linkHelp() {
+
+    addBotMessage(
+        "Күмәнді сілтемені ашпа және пароль енгізбе."
+    );
+
+
+    setTimeout(() => {
+
+        addBotMessage(
+            "Хабарламаның рас екенін басқа жолмен тексер."
+        );
+
+
+        createPlan({
+
+            category:
+                "КҮМӘНДІ СІЛТЕМЕ",
+
+            title:
+                "Сілтемені ашпа",
+
+            step1:
+                "Сілтемеге баспа.",
+
+            step2:
+                "Пароль немесе жеке ақпарат енгізбе.",
+
+            step3:
+                "Сенімді ересекпен бірге тексер.",
+
+            phrase:
+                "Маған күмәнді сілтеме келді. Мен оны ашпадым. Бірге тексеріп беріңізші."
+
+        });
+
+
+        finishActions();
+
+    }, 500);
+}
+
+
+/* =========================================================
+   FRIEND
+========================================================= */
+
+function friendHelp() {
+
+    setProgress(2);
+
+
+    addBotMessage(
+        "Досыңды тыңда және оны кінәлама."
+    );
+
+
+    setTimeout(() => {
+
+        addBotMessage(
+            "Егер мәселе оның қауіпсіздігіне қатысты болса, жағдайды екеуің ғана шешуге тырыспаңдар."
+        );
+
+
+        createPlan({
+
+            category:
+                "ДОСЫМА КӨМЕК",
+
+            title:
+                "Сенімді ересекті қос",
+
+            step1:
+                "Досыңды тыныш тыңда.",
+
+            step2:
+                "Қауіпті өзің жалғыз шешуге тырыспа.",
+
+            step3:
+                "Сенімді ересекке бірге хабарла.",
+
+            phrase:
+                "Досымның қауіпсіздігіне қатысты жағдай бар. Бізге ересек адамның көмегі керек."
+
+        });
+
+
+        finishActions();
+
+    }, 500);
+}
+
+
+/* =========================================================
+   UNKNOWN
+========================================================= */
+
+function unknownHelp() {
+
+    addBotMessage(
+        "Не істеу керегін білмеу — көмек сұрауға жеткілікті себеп."
+    );
+
+
+    setTimeout(() => {
+
+        createPlan({
+
+            category:
+                "БЕЛГІСІЗ ЖАҒДАЙ",
+
+            title:
+                "Қауіпсіз алғашқы қадам",
+
+            step1:
+                "Қазір қауіп бар-жоғын анықта.",
+
+            step2:
+                "Қажет болса қауіпсіз жерге бар.",
+
+            step3:
+                "Сенімді ересекке жағдайды түсіндір.",
+
+            phrase:
+                "Маған бір жағдай туралы айту керек. Не істеу керегіне сенімді емеспін. Маған көмектесіңізші."
+
+        });
+
+
+        finishActions();
+
+    }, 450);
+}
+
+
+/* =========================================================
+   FINAL ACTIONS
+========================================================= */
+
+function finishActions() {
+
+    setActions([
+
+        {
+            label:
+                "Басқа жағдайды қарау",
+
+            action:
+                startHelper
+        },
+
+        {
+            label:
+                "12 жағдаятқа өту",
+
+            action: () => {
+                window.location.href =
+                    "situations.html";
+            }
+        },
+
+        {
+            label:
+                "Жаттығуды бастау",
+
+            action: () => {
+                window.location.href =
+                    "practice.html";
+            }
+        }
+
+    ]);
+}
+
+
+/* =========================================================
+   COPY
+========================================================= */
+
+async function copyPhrase() {
+
+    const text =
+        document
+            .getElementById("planPhrase")
+            .textContent
+            .replaceAll("“", "")
+            .replaceAll("”", "");
+
+
+    const button =
+        document.getElementById(
+            "copyButton"
+        );
+
+
+    try {
+
+        await navigator.clipboard.writeText(
+            text
+        );
+
+
+        button.textContent =
+            "Көшірілді ✓";
+
+
+        setTimeout(() => {
+
+            button.textContent =
+                "Сөйлемді көшіру";
+
+        }, 1600);
+
+    }
+
+    catch {
+
+        button.textContent =
+            "Белгілеп көшір";
+
+    }
+}
+
+
+/* =========================================================
+   RESTART
+========================================================= */
+
+function restartHelper() {
+
+    startHelper();
+}
+
+
+/* =========================================================
+   START PAGE
+========================================================= */
+
+startHelper();
+
+</script>
 
 </body>
 </html>
