@@ -1,181 +1,230 @@
 <!DOCTYPE html>
 <html lang="kk">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Диагностика | Қауіпсіз шешім зертханасы</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Диагностика | Қауіпсіз шешім зертханасы</title>
+    <link rel="stylesheet" href="./style.css?v=50">
 </head>
 
 <body>
 
 <div class="container">
 
-<header class="hero small-hero">
-  <div class="hero-label">ЖЕКЕ ДИАГНОСТИКА</div>
-  <h1>Қауіпсіздік дағдыларын тексер</h1>
-  <p>Қауіпті таны → қауіпсіз қадамды таңда → көмек сұра</p>
-</header>
+    <header class="hero small-hero">
+        <div class="hero-label">ЖЕКЕ ДИАГНОСТИКА</div>
+        <h1>Қауіпсіздік дағдыларыңды тексер</h1>
+        <p>9 өмірлік жағдаят · 3 негізгі дағды · жеке нәтиже</p>
+    </header>
 
-<nav class="navigation">
-  <a href="index.html" class="nav-link">Басты бет</a>
-  <a href="diagnostic.html" class="nav-link active">Диагностика</a>
-  <a href="situations.html" class="nav-link">12 жағдаят</a>
-  <a href="practice.html" class="nav-link">Жаттығу</a>
-  <a href="helper.html" class="nav-link">Көмекші</a>
-  <a href="teacher.html" class="nav-link">Мұғалімге</a>
-</nav>
-
-<section class="section-card" id="intro">
-
-  <span class="eyebrow">БАСТАМАС БҰРЫН</span>
-
-  <h2>Бұл емтихан емес</h2>
-
-  <p class="section-description">
-    Саған 9 қысқа өмірлік жағдай беріледі.
-    Әр жағдайда өзіңе ең дұрыс көрінетін жауапты таңда.
-  </p>
-
-  <div class="diagnostic-skills">
-
-    <div>
-      <strong>01</strong>
-      <span>Қауіпті тану</span>
-    </div>
-
-    <div>
-      <strong>02</strong>
-      <span>Қауіпсіз әрекет</span>
-    </div>
-
-    <div>
-      <strong>03</strong>
-      <span>Көмек сұрау</span>
-    </div>
-
-  </div>
-
-  <button class="primary-btn" onclick="startDiagnostic()">
-    Диагностиканы бастау →
-  </button>
-
-</section>
+    <nav class="navigation">
+        <a href="index.html" class="nav-link">Басты бет</a>
+        <a href="diagnostic.html" class="nav-link active">Диагностика</a>
+        <a href="situations.html" class="nav-link">12 жағдаят</a>
+        <a href="practice.html" class="nav-link">Жаттығу</a>
+        <a href="helper.html" class="nav-link">Көмекші</a>
+        <a href="teacher.html" class="nav-link">Мұғалімге</a>
+    </nav>
 
 
-<section class="section-card hidden" id="quiz">
+    <main class="diagnostic-shell">
 
-  <div class="quiz-top">
+        <aside class="diagnostic-side">
 
-    <span id="questionNumber">
-      1 / 9
-    </span>
+            <span class="eyebrow">ДИАГНОСТИКА</span>
 
-    <span id="skillLabel">
-      Қауіпті тану
-    </span>
+            <h2>
+                9 қысқа<br>
+                шешім
+            </h2>
 
-  </div>
+            <p>
+                Әр сұрақта өзіңе ең қауіпсіз
+                көрінетін жауапты таңда.
+            </p>
 
-  <div class="progress">
-    <div id="progressBar"></div>
-  </div>
+            <div class="diag-step-list" id="stepList"></div>
 
-  <div class="question-category" id="questionCategory">
-    ОНЛАЙН ҚАУІПСІЗДІК
-  </div>
+            <div class="diag-side-note">
+                <strong>Маңызды</strong>
+                <span>
+                    Мұнда дайын пайыз жоқ.
+                    Нәтиже тек сенің жауабыңнан есептеледі.
+                </span>
+            </div>
 
-  <h2 id="questionTitle"></h2>
-
-  <p class="question-text" id="questionText"></p>
-
-  <div class="answer-list" id="answers"></div>
-
-</section>
+        </aside>
 
 
-<section class="section-card hidden" id="results">
+        <section class="diagnostic-stage">
 
-  <span class="eyebrow">СЕНІҢ НӘТИЖЕҢ</span>
+            <div id="quizScreen">
 
-  <h2>Қауіпсіздік дағдыларының картасы</h2>
+                <div class="diag-topline">
 
-  <p class="section-description">
-    Бұл нәтиже тек осы диагностикада берген жауаптарыңнан есептелді.
-  </p>
+                    <div>
+                        <span id="diagCategory" class="diag-category">
+                            ОНЛАЙН
+                        </span>
 
+                        <span id="diagSkill" class="diag-skill">
+                            Қауіпті тану
+                        </span>
+                    </div>
 
-  <div class="result-item">
+                    <strong id="diagCounter">
+                        1 / 9
+                    </strong>
 
-    <div class="result-head">
-      <span>Қауіпті тану</span>
-      <strong id="dangerPercent">0%</strong>
-    </div>
-
-    <div class="result-track">
-      <div id="dangerBar" class="result-fill"></div>
-    </div>
-
-    <p id="dangerText"></p>
-
-  </div>
+                </div>
 
 
-  <div class="result-item">
-
-    <div class="result-head">
-      <span>Қауіпсіз әрекетті таңдау</span>
-      <strong id="actionPercent">0%</strong>
-    </div>
-
-    <div class="result-track">
-      <div id="actionBar" class="result-fill"></div>
-    </div>
-
-    <p id="actionText"></p>
-
-  </div>
+                <div class="diag-progress">
+                    <div id="diagProgressFill"></div>
+                </div>
 
 
-  <div class="result-item">
+                <div class="diag-question-card">
 
-    <div class="result-head">
-      <span>Көмек сұрау</span>
-      <strong id="helpPercent">0%</strong>
-    </div>
+                    <div class="diag-number" id="diagNumber">
+                        01
+                    </div>
 
-    <div class="result-track">
-      <div id="helpBar" class="result-fill"></div>
-    </div>
+                    <h2 id="diagTitle">
+                        Белгісіз аккаунт
+                    </h2>
 
-    <p id="helpText"></p>
+                    <p id="diagText"></p>
 
-  </div>
+                </div>
 
 
-  <div class="recommendation">
+                <div class="diag-answer-grid" id="diagAnswers"></div>
 
-    <span>БІРІНШІ КҮШЕЙТЕТІН ДАҒДЫ</span>
 
-    <h3 id="weakSkill"></h3>
+                <div class="diag-controls">
 
-    <p id="recommendationText"></p>
+                    <button
+                        id="nextQuestionBtn"
+                        class="diag-next-btn"
+                        disabled
+                        onclick="goNextQuestion()">
 
-    <a href="practice.html" class="primary-btn">
-      Маған арналған жаттығуды бастау →
-    </a>
+                        Келесі сұрақ
+                        <span>→</span>
 
-  </div>
+                    </button>
 
-  <button class="outline-btn" onclick="restartDiagnostic()">
-    Қайта өту
-  </button>
+                </div>
 
-</section>
+            </div>
+
+
+            <div id="resultScreen" class="hidden">
+
+                <div class="result-title">
+
+                    <span class="eyebrow">
+                        ДИАГНОСТИКА АЯҚТАЛДЫ
+                    </span>
+
+                    <h2>
+                        Сенің қауіпсіздік дағдыларың
+                    </h2>
+
+                    <p>
+                        Үш нәтиже тек сенің жауаптарың бойынша есептелді.
+                    </p>
+
+                </div>
+
+
+                <div class="result-dashboard">
+
+                    <article class="result-skill-card">
+
+                        <div class="score-ring" id="dangerRing">
+                            <div>
+                                <strong id="dangerScore">0%</strong>
+                                <span>нәтиже</span>
+                            </div>
+                        </div>
+
+                        <h3>Қауіпті тану</h3>
+
+                        <p id="dangerDescription"></p>
+
+                    </article>
+
+
+                    <article class="result-skill-card">
+
+                        <div class="score-ring" id="actionRing">
+                            <div>
+                                <strong id="actionScore">0%</strong>
+                                <span>нәтиже</span>
+                            </div>
+                        </div>
+
+                        <h3>Қауіпсіз әрекет</h3>
+
+                        <p id="actionDescription"></p>
+
+                    </article>
+
+
+                    <article class="result-skill-card">
+
+                        <div class="score-ring" id="helpRing">
+                            <div>
+                                <strong id="helpScore">0%</strong>
+                                <span>нәтиже</span>
+                            </div>
+                        </div>
+
+                        <h3>Көмек сұрау</h3>
+
+                        <p id="helpDescription"></p>
+
+                    </article>
+
+                </div>
+
+
+                <div class="personal-route">
+
+                    <div>
+
+                        <span>
+                            САҒАН ҰСЫНЫЛАТЫН КЕЛЕСІ ҚАДАМ
+                        </span>
+
+                        <h3 id="routeTitle"></h3>
+
+                        <p id="routeText"></p>
+
+                    </div>
+
+                    <a href="practice.html" class="primary-btn">
+                        Жаттығуға өту →
+                    </a>
+
+                </div>
+
+
+                <button class="outline-btn" onclick="restartDiagnostic()">
+                    Диагностиканы қайта өту
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
 
 </div>
 
-<script src="diagnostic.js"></script>
+<script src="./diagnostic.js?v=50"></script>
 
 </body>
 </html>
