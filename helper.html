@@ -1,191 +1,124 @@
 <!DOCTYPE html>
-
 <html lang="kk">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Көмекші | Қауіпсіз шешім зертханасы</title>
 
-<title>Көмекші | Қауіпсіз шешім зертханасы</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="./style.css?v=50">
 </head>
-
 
 <body>
 
 <div class="container">
 
+    <header class="hero small-hero">
+        <div class="hero-label">
+            ҚАУІПСІЗДІК КӨМЕКШІСІ
+        </div>
 
-<header class="hero small-hero">
+        <h1>
+            Қазір не істеу керек?
+        </h1>
 
-<div class="hero-label">
-ҚАДАМДЫҚ КӨМЕК
-</div>
-
-<h1>
-Қауіпсіздік көмекшісі
-</h1>
-
-<p>
-Не болғанын таңда → қауіпсіз келесі қадамды анықта
-</p>
-
-</header>
+        <p>
+            Бірнеше қысқа сұрақ арқылы қауіпсіз келесі қадамды анықта
+        </p>
+    </header>
 
 
-<nav class="navigation">
-
-<a href="index.html" class="nav-link">
-Басты бет
-</a>
-
-<a href="diagnostic.html" class="nav-link">
-Диагностика
-</a>
-
-<a href="situations.html" class="nav-link">
-12 жағдаят
-</a>
-
-<a href="practice.html" class="nav-link">
-Жаттығу
-</a>
-
-<a href="helper.html" class="nav-link active">
-Көмекші
-</a>
-
-<a href="teacher.html" class="nav-link">
-Мұғалімге
-</a>
-
-</nav>
+    <nav class="navigation">
+        <a href="index.html" class="nav-link">Басты бет</a>
+        <a href="diagnostic.html" class="nav-link">Диагностика</a>
+        <a href="situations.html" class="nav-link">12 жағдаят</a>
+        <a href="practice.html" class="nav-link">Жаттығу</a>
+        <a href="helper.html" class="nav-link active">Көмекші</a>
+        <a href="teacher.html" class="nav-link">Мұғалімге</a>
+    </nav>
 
 
-<div class="helper-layout">
+    <main class="messenger-shell">
+
+        <aside class="messenger-info">
+
+            <div class="helper-avatar-large">
+                Q
+            </div>
+
+            <span class="eyebrow">
+                ҚАУІПСІЗДІК КӨМЕКШІСІ
+            </span>
+
+            <h2>
+                Жалғыз шешуге міндетті емессің
+            </h2>
+
+            <p>
+                Көмекші жағдайды талқылап,
+                қауіпсіз алғашқы қадамды таңдауға көмектеседі.
+            </p>
 
 
-<section class="helper-chat">
+            <div class="helper-rule">
+                <strong>01</strong>
+                Жеке дерек жазба
+            </div>
 
-<div class="chat-header">
+            <div class="helper-rule">
+                <strong>02</strong>
+                Бұл жедел қызмет емес
+            </div>
 
-<div class="bot-avatar">
-Q
-</div>
+            <div class="helper-rule">
+                <strong>03</strong>
+                Қауіп болса — ересекке хабарла
+            </div>
 
-<div>
-
-<strong>
-Қауіпсіздік көмекшісі
-</strong>
-
-<span>
-Қадамдық көмек
-</span>
-
-</div>
-
-</div>
+        </aside>
 
 
-<div id="chatMessages"
-class="chat-messages">
+        <section class="messenger-window">
 
-<div class="message bot-message">
+            <div class="messenger-header">
 
-Сәлем! Мен саған қауіпсіз
-келесі қадамды таңдауға көмектесемін.
+                <div class="helper-avatar">
+                    Q
+                </div>
 
-</div>
+                <div>
+                    <strong>
+                        Қауіпсіздік көмекшісі
+                    </strong>
+
+                    <span>
+                        ● онлайн
+                    </span>
+                </div>
+
+            </div>
 
 
-<div class="message bot-message">
-
-Алдымен айта аласың ба:
-қазір саған немесе басқа адамға
-тікелей қауіп төніп тұр ма?
-
-</div>
-
-</div>
+            <div class="messenger-chat" id="helperMessages"></div>
 
 
-<div id="chatActions"
-class="chat-actions">
+            <div class="typing-indicator hidden" id="typingIndicator">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
 
-<button onclick="directDanger()">
 
-Иә, қазір қауіп бар
+            <div class="messenger-actions" id="helperActions"></div>
 
-</button>
+        </section>
 
-<button onclick="chooseProblem()">
-
-Қазір тікелей қауіп жоқ
-
-</button>
-
-<button onclick="friendHelp()">
-
-Досыма көмектескім келеді
-
-</button>
+    </main>
 
 </div>
 
-
-</section>
-
-
-<aside class="helper-info">
-
-<span class="eyebrow">
-МАҢЫЗДЫ
-</span>
-
-<h3>
-Бұл чат не істейді?
-</h3>
-
-<p>
-Көмекші диагноз қоймайды және
-шынайы ересек адамның көмегін
-алмастырмайды.
-</p>
-
-<p>
-Ол тек қауіпсіз алғашқы қадамды
-таңдауға және көмек сұрайтын
-сөйлемді құрауға көмектеседі.
-</p>
-
-
-<div class="privacy-box">
-
-<strong>
-Жеке дерек қажет емес
-</strong>
-
-<p>
-Атыңды, мекенжайыңды,
-телефон нөміріңді немесе
-құпиясөзіңді жазба.
-</p>
-
-</div>
-
-</aside>
-
-
-</div>
-
-</div>
-
-
-<script src="helper.js"></script>
+<script src="./helper.js?v=50"></script>
 
 </body>
 </html>
