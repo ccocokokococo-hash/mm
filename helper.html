@@ -7,14 +7,16 @@
 
     <title>Көмекші | Қауіпсіз шешім зертханасы</title>
 
-    <link rel="stylesheet" href="./style.css?v=50">
+    <link rel="stylesheet" href="./style.css?v=70">
 </head>
+
 
 <body>
 
 <div class="container">
 
     <header class="hero small-hero">
+
         <div class="hero-label">
             ҚАУІПСІЗДІК КӨМЕКШІСІ
         </div>
@@ -24,101 +26,261 @@
         </h1>
 
         <p>
-            Бірнеше қысқа сұрақ арқылы қауіпсіз келесі қадамды анықта
+            Жағдайды таңда → қауіпсіз қадамды анықта → ересекке не айту керегін ал
         </p>
+
     </header>
 
 
     <nav class="navigation">
-        <a href="index.html" class="nav-link">Басты бет</a>
-        <a href="diagnostic.html" class="nav-link">Диагностика</a>
-        <a href="situations.html" class="nav-link">12 жағдаят</a>
-        <a href="practice.html" class="nav-link">Жаттығу</a>
-        <a href="helper.html" class="nav-link active">Көмекші</a>
-        <a href="teacher.html" class="nav-link">Мұғалімге</a>
+
+        <a href="index.html" class="nav-link">
+            Басты бет
+        </a>
+
+        <a href="diagnostic.html" class="nav-link">
+            Диагностика
+        </a>
+
+        <a href="situations.html" class="nav-link">
+            12 жағдаят
+        </a>
+
+        <a href="practice.html" class="nav-link">
+            Жаттығу
+        </a>
+
+        <a href="helper.html" class="nav-link active">
+            Көмекші
+        </a>
+
+        <a href="teacher.html" class="nav-link">
+            Мұғалімге
+        </a>
+
     </nav>
 
 
-    <main class="messenger-shell">
+    <div class="helper-alert">
 
-        <aside class="messenger-info">
+        <div class="helper-alert-icon">
+            !
+        </div>
 
-            <div class="helper-avatar-large">
-                Q
-            </div>
-
-            <span class="eyebrow">
-                ҚАУІПСІЗДІК КӨМЕКШІСІ
-            </span>
-
-            <h2>
-                Жалғыз шешуге міндетті емессің
-            </h2>
+        <div>
+            <strong>
+                Бұл көмекші жедел қызмет емес
+            </strong>
 
             <p>
-                Көмекші жағдайды талқылап,
-                қауіпсіз алғашқы қадамды таңдауға көмектеседі.
+                Егер дәл қазір тікелей қауіп болса,
+                алдымен қауіпсіз жерге бар және сенімді ересекке хабарла.
             </p>
+        </div>
+
+    </div>
 
 
-            <div class="helper-rule">
-                <strong>01</strong>
-                Жеке дерек жазба
-            </div>
+    <main class="helper-pro-layout">
 
-            <div class="helper-rule">
-                <strong>02</strong>
-                Бұл жедел қызмет емес
-            </div>
+        <!-- CHAT -->
 
-            <div class="helper-rule">
-                <strong>03</strong>
-                Қауіп болса — ересекке хабарла
-            </div>
+        <section class="helper-pro-chat">
 
-        </aside>
-
-
-        <section class="messenger-window">
-
-            <div class="messenger-header">
+            <div class="helper-chat-head">
 
                 <div class="helper-avatar">
                     Q
                 </div>
 
                 <div>
+
                     <strong>
                         Қауіпсіздік көмекшісі
                     </strong>
 
                     <span>
-                        ● онлайн
+                        ● қадамдық көмек
                     </span>
+
+                </div>
+
+
+                <button onclick="restartHelper()"
+                        class="helper-restart">
+                    ↻
+                </button>
+
+            </div>
+
+
+            <div id="helperMessages"
+                 class="helper-chat-body">
+            </div>
+
+
+            <div id="typingIndicator"
+                 class="typing-indicator hidden">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+
+            <div id="helperActions"
+                 class="helper-actions">
+            </div>
+
+        </section>
+
+
+        <!-- PLAN -->
+
+        <aside class="safety-plan"
+               id="safetyPlan">
+
+            <div class="safety-plan-head">
+
+                <span>
+                    ҚАУІПСІЗ ЖОСПАР
+                </span>
+
+                <div id="planStatus"
+                     class="plan-status">
+                    күтілуде
                 </div>
 
             </div>
 
 
-            <div class="messenger-chat" id="helperMessages"></div>
+            <div id="planEmpty"
+                 class="plan-empty">
 
+                <div class="plan-empty-icon">
+                    ?
+                </div>
 
-            <div class="typing-indicator hidden" id="typingIndicator">
-                <span></span>
-                <span></span>
-                <span></span>
+                <h3>
+                    Әзірге жоспар жоқ
+                </h3>
+
+                <p>
+                    Көмекші сұрақтарына жауап бергенде
+                    осы жерде сенің келесі қадамдарың пайда болады.
+                </p>
+
             </div>
 
 
-            <div class="messenger-actions" id="helperActions"></div>
+            <div id="planContent"
+                 class="hidden">
 
-        </section>
+                <h2 id="planTitle">
+                    Қауіпсіз қадам
+                </h2>
+
+
+                <div class="plan-steps">
+
+                    <div>
+
+                        <strong>01</strong>
+
+                        <p id="planStep1"></p>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>02</strong>
+
+                        <p id="planStep2"></p>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>03</strong>
+
+                        <p id="planStep3"></p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="plan-phrase">
+
+                    <span>
+                        ЕРЕСЕККЕ АЙТАТЫН СӨЗ
+                    </span>
+
+                    <p id="planPhrase"></p>
+
+                    <button onclick="copyPlanPhrase()"
+                            id="copyPhraseButton">
+                        Көшіру
+                    </button>
+
+                </div>
+
+            </div>
+
+        </aside>
 
     </main>
 
+
+    <section class="helper-bottom-info">
+
+        <div>
+
+            <strong>
+                Жеке дерек қажет емес
+            </strong>
+
+            <span>
+                Аты-жөніңді, мекенжайыңды немесе құпиясөзіңді жазба.
+            </span>
+
+        </div>
+
+
+        <div>
+
+            <strong>
+                Жалғыз шешуге міндетті емессің
+            </strong>
+
+            <span>
+                Қауіпсіздікке қатысты мәселені сенімді ересекпен бөлісуге болады.
+            </span>
+
+        </div>
+
+
+        <div>
+
+            <strong>
+                Қауіпсіздік бірінші орында
+            </strong>
+
+            <span>
+                Өзіңді қауіпке салып, біреуді тоқтатуға тырыспа.
+            </span>
+
+        </div>
+
+    </section>
+
 </div>
 
-<script src="./helper.js?v=50"></script>
+
+<script src="./helper.js?v=70"></script>
 
 </body>
 </html>
