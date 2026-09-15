@@ -1,205 +1,238 @@
 <!DOCTYPE html>
 <html lang="kk">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>12 жағдаят | Қауіпсіз шешім зертханасы</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12 жағдаят | Қауіпсіз шешім зертханасы</title>
+    <link rel="stylesheet" href="./style.css?v=30">
 </head>
-
 
 <body>
 
 <div class="container">
 
-<header class="hero small-hero">
+    <!-- HERO -->
+    <header class="hero small-hero">
+        <div class="hero-label">
+            7-СЫНЫП · ЖАҒДАЯТТАР БАЗАСЫ
+        </div>
 
-  <div class="hero-label">
-    ЖАҒДАЯТТАР БАЗАСЫ
-  </div>
+        <h1>
+            12 жағдаят
+        </h1>
 
-  <h1>
-    Өмірде кездесетін 12 жағдай
-  </h1>
-
-  <p>
-    Жағдаятты таңда → шешімді ойлан → жаттығуды баста
-  </p>
-
-</header>
-
-
-<nav class="navigation">
-
-<a href="index.html" class="nav-link">
-Басты бет
-</a>
-
-<a href="diagnostic.html" class="nav-link">
-Диагностика
-</a>
-
-<a href="situations.html" class="nav-link active">
-12 жағдаят
-</a>
-
-<a href="practice.html" class="nav-link">
-Жаттығу
-</a>
-
-<a href="helper.html" class="nav-link">
-Көмекші
-</a>
-
-<a href="teacher.html" class="nav-link">
-Мұғалімге
-</a>
-
-</nav>
+        <p>
+            Ауылдағы, мектептегі, онлайн кеңістіктегі және төтенше жағдайлардағы
+            қауіпсіз шешімді жаттықтыруға арналған база
+        </p>
+    </header>
 
 
-<section class="section-card">
+    <!-- NAVIGATION -->
+    <nav class="navigation">
 
-<span class="eyebrow">
-4 ТАҚЫРЫП · 12 ЖАҒДАЯТ
-</span>
+        <a href="index.html" class="nav-link">
+            Басты бет
+        </a>
 
-<h2>
-Жағдаятты таңда
-</h2>
+        <a href="diagnostic.html" class="nav-link">
+            Диагностика
+        </a>
 
-<p class="section-description">
-Карточкалар ауылдағы, мектептегі,
-онлайн кеңістіктегі және төтенше жағдайлардағы
-қауіпсіз әрекетті жаттықтыруға арналған.
-</p>
+        <a href="situations.html" class="nav-link active">
+            12 жағдаят
+        </a>
 
+        <a href="practice.html" class="nav-link">
+            Жаттығу
+        </a>
 
-<div class="filters">
+        <a href="helper.html" class="nav-link">
+            Көмекші
+        </a>
 
-<button class="filter active"
-onclick="filterCards('all', this)">
-Барлығы
-</button>
+        <a href="teacher.html" class="nav-link">
+            Мұғалімге
+        </a>
 
-<button class="filter"
-onclick="filterCards('road', this)">
-Ауыл және жол
-</button>
-
-<button class="filter"
-onclick="filterCards('online', this)">
-Онлайн
-</button>
-
-<button class="filter"
-onclick="filterCards('social', this)">
-Қарым-қатынас
-</button>
-
-<button class="filter"
-onclick="filterCards('emergency', this)">
-Төтенше жағдай
-</button>
-
-</div>
+    </nav>
 
 
-<div class="situation-grid" id="situationGrid"></div>
+    <!-- INTRO -->
+    <section class="section-card situations-top-card">
 
-</section>
+        <span class="eyebrow">
+            4 ТАҚЫРЫП · 12 ЖАҒДАЯТ
+        </span>
+
+        <h2>
+            Жағдаятты таңда
+        </h2>
+
+        <p class="section-description">
+            Карточкалар ауылдағы, мектептегі, онлайн кеңістіктегі және
+            төтенше жағдайлардағы қауіпсіз әрекетті жаттықтыруға арналған.
+        </p>
+
+        <div class="situations-summary">
+
+            <div class="situations-summary-card">
+                <strong>12</strong>
+                <span>өмірлік жағдаят</span>
+            </div>
+
+            <div class="situations-summary-card">
+                <strong>3</strong>
+                <span>әр картадағы әрекет нұсқасы</span>
+            </div>
+
+            <div class="situations-summary-card">
+                <strong>4</strong>
+                <span>тақырыптық бөлім</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FILTERS + GRID -->
+    <section class="section-card situations-list-card">
+
+        <div class="situations-head">
+
+            <div>
+                <span class="eyebrow">
+                    БАЗАНЫ ШОЛУ
+                </span>
+                <h2>
+                    Өзіңе жақын жағдаяттан баста
+                </h2>
+            </div>
+
+        </div>
+
+        <div class="filters situations-filters">
+
+            <button class="filter active" onclick="filterCards('all', this)">
+                Барлығы
+            </button>
+
+            <button class="filter" onclick="filterCards('road', this)">
+                Ауыл және жол
+            </button>
+
+            <button class="filter" onclick="filterCards('online', this)">
+                Онлайн
+            </button>
+
+            <button class="filter" onclick="filterCards('social', this)">
+                Қарым-қатынас
+            </button>
+
+            <button class="filter" onclick="filterCards('emergency', this)">
+                Төтенше жағдай
+            </button>
+        </div>
+
+        <div id="situationGrid" class="situation-grid"></div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="teacher-dark">
+
+        <div>
+            <span>
+                КЕЛЕСІ ҚАДАМ
+            </span>
+
+            <h2>
+                Жағдаятты тек оқып қоймай,
+                бірден жаттығуға өт
+            </h2>
+
+            <p>
+                Әр карточкадан кейін интерактивті жаттығуды бастауға болады.
+            </p>
+        </div>
+
+        <a href="practice.html" class="light-button">
+            Жаттығуға өту →
+        </a>
+
+    </section>
+
+
+    <footer>
+        <strong>Қауіпсіз шешім зертханасы</strong>
+        <p>12 жағдаят базасы · 7-сынып</p>
+    </footer>
 
 </div>
 
 
 <script src="situations.js"></script>
-
 <script>
+    function renderCards(filter = "all") {
+        const container = document.getElementById("situationGrid");
+        container.innerHTML = "";
 
-function renderCards(filter = "all") {
+        const filtered = situations.filter(item =>
+            filter === "all" || item.category === filter
+        );
 
-const container =
-document.getElementById("situationGrid");
+        filtered.forEach(item => {
+            const card = document.createElement("article");
+            card.className = "situation-card";
 
-container.innerHTML = "";
+            card.innerHTML = `
+                <div class="situation-card-top">
+                    <div class="situation-id-wrap">
+                        <span class="situation-id">
+                            ${String(item.id).padStart(2, "0")}
+                        </span>
 
+                        <span class="situation-category-pill">
+                            ${item.categoryName}
+                        </span>
+                    </div>
 
-situations
-.filter(item =>
-filter === "all" || item.category === filter
-)
-.forEach(item => {
+                    <span class="situation-skill-tag">
+                        ${item.skill}
+                    </span>
+                </div>
 
-const card =
-document.createElement("article");
+                <h3 class="situation-card-title">
+                    ${item.title}
+                </h3>
 
-card.className = "situation-card";
+                <p class="situation-card-text">
+                    ${item.short}
+                </p>
 
-card.innerHTML = `
+                <div class="situation-card-bottom">
+                    <a class="situation-train-link" href="practice.html?id=${item.id}">
+                        Жаттығу →
+                    </a>
+                </div>
+            `;
 
-<div class="situation-top">
+            container.appendChild(card);
+        });
+    }
 
-<span class="situation-number">
-${String(item.id).padStart(2,"0")}
-</span>
+    function filterCards(category, button) {
+        document.querySelectorAll(".filter").forEach(btn => {
+            btn.classList.remove("active");
+        });
 
-<span class="situation-category">
-${item.categoryName}
-</span>
+        button.classList.add("active");
+        renderCards(category);
+    }
 
-</div>
-
-<h3>
-${item.title}
-</h3>
-
-<p>
-${item.short}
-</p>
-
-<div class="situation-bottom">
-
-<span>
-${item.skill}
-</span>
-
-<a href="practice.html?id=${item.id}">
-Жаттығу →
-</a>
-
-</div>
-
-`;
-
-container.appendChild(card);
-
-});
-
-}
-
-
-function filterCards(category, button) {
-
-document
-.querySelectorAll(".filter")
-.forEach(btn =>
-btn.classList.remove("active")
-);
-
-button.classList.add("active");
-
-renderCards(category);
-
-}
-
-
-renderCards();
-
+    renderCards();
 </script>
 
 </body>
