@@ -1,322 +1,227 @@
-let currentSituation = 0;
-
-
 const params =
-new URLSearchParams(window.location.search);
-
+    new URLSearchParams(window.location.search);
 
 const requestedId =
-parseInt(params.get("id"));
+    Number(params.get("id"));
+
+let currentIndex =
+    requestedId
+        ? Math.max(
+            0,
+            situations.findIndex(
+                item => item.id === requestedId
+            )
+        )
+        : 0;
 
 
-if (requestedId) {
+function renderPractice() {
 
-const found =
-situations.findIndex(
-item => item.id === requestedId
-);
-
-if (found !== -1) {
-
-currentSituation = found;
-
-}
-
-}
+    const item =
+        situations[currentIndex];
 
 
-function loadSituation() {
+    document.getElementById("practiceCategory").textContent =
+        item.categoryName;
 
-const item =
-situations[currentSituation];
+    document.getElementById("practiceSkill").textContent =
+        item.skill;
 
+    document.getElementById("practiceCurrent").textContent =
+        String(item.id).padStart(2, "0");
 
-document.getElementById(
-"practiceCategory"
-).textContent =
-item.categoryName;
+    document.getElementById("sceneNumber").textContent =
+        String(item.id).padStart(2, "0");
 
+    document.getElementById("practiceTitle").textContent =
+        item.title;
 
-document.getElementById(
-"practiceCounter"
-).textContent =
-`${String(item.id).padStart(2,"0")} / 12`;
-
-
-document.getElementById(
-"practiceTitle"
-).textContent =
-item.title;
+    document.getElementById("practiceText").textContent =
+        item.text;
 
 
-document.getElementById(
-"practiceText"
-).textContent =
-item.text;
+    const progress =
+        item.id / situations.length * 100;
+
+    document.getElementById("practiceProgressFill").style.width =
+        `${progress}%`;
 
 
-const options =
-document.getElementById(
-"practiceOptions"
-);
+    const wrap =
+        document.getElementById("practiceOptions");
+
+    wrap.innerHTML = "";
 
 
-options.innerHTML = "";
+    item.options.forEach((option, index) => {
+
+        const button =
+            document.createElement("button");
+
+        button.className =
+            "practice-choice";
+
+        button.innerHTML = `
+            <span class="practice-choice-letter">
+                ${String.fromCharCode(65 + index)}
+            </span>
+
+            <span class="practice-choice-text">
+                ${option}
+            </span>
+
+            <span class="practice-choice-status"></span>
+        `;
+
+        button.onclick =
+            () => choosePracticeAnswer(
+                index,
+                button
+            );
+
+        wrap.appendChild(button);
+
+    });
 
 
-item.options.forEach(
-(option, index) => {
+    document
+        .getElementById("practiceFeedback")
+        .classList.add("hidden");
 
-const button =
-document.createElement("button");
+    document
+        .getElementById("practicePhrase")
+        .classList.add("hidden");
 
-
-button.className =
-"practice-option";
-
-
-button.innerHTML = `
-
-<span class="option-letter">
-
-${String.fromCharCode(
-65 + index
-)}
-
-</span>
-
-<span>
-${option}
-</span>
-
-`;
-
-
-button.onclick =
-() => chooseOption(
-index,
-button
-);
-
-
-options.appendChild(
-button
-);
-
-});
-
-
-document
-.getElementById("feedbackBox")
-.classList.add("hidden");
-
-
-document
-.getElementById("sayBox")
-.classList.add("hidden");
-
-
-document
-.getElementById("nextArea")
-.classList.add("hidden");
+    document
+        .getElementById("practiceNext")
+        .classList.add("hidden");
 
 }
 
 
-function chooseOption(
-selected,
-button
-) {
+function choosePracticeAnswer(index, selectedButton) {
 
-const item =
-situations[currentSituation];
+    const item =
+        situations[currentIndex];
 
-
-document
-.querySelectorAll(
-".practice-option"
-)
-.forEach(btn => {
-
-btn.disabled = true;
-
-});
+    const buttons =
+        document.querySelectorAll(".practice-choice");
 
 
-const correct =
-selected === item.correct;
+    buttons.forEach((button, i) => {
+
+        button.disabled = true;
+
+        if (i === item.correct) {
+            button.classList.add("safe-choice");
+        }
+
+    });
 
 
-if (correct) {
-
-button.classList.add(
-"correct"
-);
-
-document.getElementById(
-"feedbackStatus"
-).textContent =
-"ҚАУІПСІЗ ШЕШІМ";
+    const correct =
+        index === item.correct;
 
 
-document.getElementById(
-"feedbackTitle"
-).textContent =
-"Дұрыс бағыт таңдадың";
+    if (!correct) {
 
-}
+        selectedButton.classList.add(
+            "unsafe-choice"
+        );
 
-else {
+        document.getElementById("feedbackIcon").textContent =
+            "!";
 
-button.classList.add(
-"wrong"
-);
+        document.getElementById("feedbackLabel").textContent =
+            "ҚАЙТА ОЙЛАН";
 
+        document.getElementById("feedbackHeading").textContent =
+            "Қауіпсіздеу әрекет бар";
 
-const buttons =
-document.querySelectorAll(
-".practice-option"
-);
+    } else {
 
+        document.getElementById("feedbackIcon").textContent =
+            "✓";
 
-buttons[
-item.correct
-].classList.add(
-"correct"
-);
+        document.getElementById("feedbackLabel").textContent =
+            "ҚАУІПСІЗ ШЕШІМ";
 
+        document.getElementById("feedbackHeading").textContent =
+            "Дұрыс бағыт таңдадың";
 
-document.getElementById(
-"feedbackStatus"
-).textContent =
-"ҚАЙТА ОЙЛАН";
+    }
 
 
-document.getElementById(
-"feedbackTitle"
-).textContent =
-"Қауіпсіздеу әрекет бар";
+    document.getElementById("feedbackText").textContent =
+        item.feedback[index];
 
-}
-
-
-document.getElementById(
-"feedbackText"
-).textContent =
-item.feedback[selected];
+    document.getElementById("phraseText").textContent =
+        item.say;
 
 
-document.getElementById(
-"sayText"
-).textContent =
-item.say;
+    document
+        .getElementById("practiceFeedback")
+        .classList.remove("hidden");
+
+    document
+        .getElementById("practicePhrase")
+        .classList.remove("hidden");
+
+    document
+        .getElementById("practiceNext")
+        .classList.remove("hidden");
 
 
-document
-.getElementById("feedbackBox")
-.classList.remove("hidden");
+    setTimeout(() => {
 
+        document
+            .getElementById("practiceFeedback")
+            .scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
 
-document
-.getElementById("sayBox")
-.classList.remove("hidden");
-
-
-document
-.getElementById("nextArea")
-.classList.remove("hidden");
-
-
-saveCompleted(
-item.id
-);
+    }, 150);
 
 }
 
 
 function nextSituation() {
 
-currentSituation++;
+    currentIndex++;
 
+    if (currentIndex >= situations.length) {
+        currentIndex = 0;
+    }
 
-if (
-currentSituation >=
-situations.length
-) {
+    renderPractice();
 
-currentSituation = 0;
-
-}
-
-
-loadSituation();
-
-
-window.scrollTo({
-top: 0,
-behavior: "smooth"
-});
-
-}
-
-
-function saveCompleted(id) {
-
-let completed =
-JSON.parse(
-localStorage.getItem(
-"completedSituations"
-)
-) || [];
-
-
-if (
-!completed.includes(id)
-) {
-
-completed.push(id);
-
-}
-
-
-localStorage.setItem(
-"completedSituations",
-JSON.stringify(completed)
-);
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 
 }
 
 
 function speakPhrase() {
 
-const text =
-document.getElementById(
-"sayText"
-).textContent;
+    if (!("speechSynthesis" in window))
+        return;
 
+    speechSynthesis.cancel();
 
-if (
-"speechSynthesis" in window
-) {
+    const text =
+        document.getElementById("phraseText").textContent;
 
-speechSynthesis.cancel();
+    const speech =
+        new SpeechSynthesisUtterance(text);
 
-const utterance =
-new SpeechSynthesisUtterance(
-text
-);
+    speech.lang = "kk-KZ";
 
-utterance.lang =
-"kk-KZ";
-
-
-speechSynthesis.speak(
-utterance
-);
-
-}
+    speechSynthesis.speak(speech);
 
 }
 
 
-loadSituation();
+renderPractice();
