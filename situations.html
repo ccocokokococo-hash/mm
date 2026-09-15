@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>12 жағдаят | Қауіпсіз шешім зертханасы</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+<header class="hero small-hero">
+
+  <div class="hero-label">
+    ЖАҒДАЯТТАР БАЗАСЫ
+  </div>
+
+  <h1>
+    Өмірде кездесетін 12 жағдай
+  </h1>
+
+  <p>
+    Жағдаятты таңда → шешімді ойлан → жаттығуды баста
+  </p>
+
+</header>
+
+
+<nav class="navigation">
+
+<a href="index.html" class="nav-link">
+Басты бет
+</a>
+
+<a href="diagnostic.html" class="nav-link">
+Диагностика
+</a>
+
+<a href="situations.html" class="nav-link active">
+12 жағдаят
+</a>
+
+<a href="practice.html" class="nav-link">
+Жаттығу
+</a>
+
+<a href="helper.html" class="nav-link">
+Көмекші
+</a>
+
+<a href="teacher.html" class="nav-link">
+Мұғалімге
+</a>
+
+</nav>
+
+
+<section class="section-card">
+
+<span class="eyebrow">
+4 ТАҚЫРЫП · 12 ЖАҒДАЯТ
+</span>
+
+<h2>
+Жағдаятты таңда
+</h2>
+
+<p class="section-description">
+Карточкалар ауылдағы, мектептегі,
+онлайн кеңістіктегі және төтенше жағдайлардағы
+қауіпсіз әрекетті жаттықтыруға арналған.
+</p>
+
+
+<div class="filters">
+
+<button class="filter active"
+onclick="filterCards('all', this)">
+Барлығы
+</button>
+
+<button class="filter"
+onclick="filterCards('road', this)">
+Ауыл және жол
+</button>
+
+<button class="filter"
+onclick="filterCards('online', this)">
+Онлайн
+</button>
+
+<button class="filter"
+onclick="filterCards('social', this)">
+Қарым-қатынас
+</button>
+
+<button class="filter"
+onclick="filterCards('emergency', this)">
+Төтенше жағдай
+</button>
+
+</div>
+
+
+<div class="situation-grid" id="situationGrid"></div>
+
+</section>
+
+</div>
+
+
+<script src="situations.js"></script>
+
+<script>
+
+function renderCards(filter = "all") {
+
+const container =
+document.getElementById("situationGrid");
+
+container.innerHTML = "";
+
+
+situations
+.filter(item =>
+filter === "all" || item.category === filter
+)
+.forEach(item => {
+
+const card =
+document.createElement("article");
+
+card.className = "situation-card";
+
+card.innerHTML = `
+
+<div class="situation-top">
+
+<span class="situation-number">
+${String(item.id).padStart(2,"0")}
+</span>
+
+<span class="situation-category">
+${item.categoryName}
+</span>
+
+</div>
+
+<h3>
+${item.title}
+</h3>
+
+<p>
+${item.short}
+</p>
+
+<div class="situation-bottom">
+
+<span>
+${item.skill}
+</span>
+
+<a href="practice.html?id=${item.id}">
+Жаттығу →
+</a>
+
+</div>
+
+`;
+
+container.appendChild(card);
+
+});
+
+}
+
+
+function filterCards(category, button) {
+
+document
+.querySelectorAll(".filter")
+.forEach(btn =>
+btn.classList.remove("active")
+);
+
+button.classList.add("active");
+
+renderCards(category);
+
+}
+
+
+renderCards();
+
+</script>
+
+</body>
+</html>
