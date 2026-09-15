@@ -1,370 +1,124 @@
-const messages =
-document.getElementById(
-"chatMessages"
-);
+<!DOCTYPE html>
+<html lang="kk">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-const actions =
-document.getElementById(
-"chatActions"
-);
+    <title>Көмекші | Қауіпсіз шешім зертханасы</title>
 
+    <link rel="stylesheet" href="./style.css?v=50">
+</head>
 
-function bot(text) {
+<body>
 
-const div =
-document.createElement("div");
+<div class="container">
 
-div.className =
-"message bot-message";
+    <header class="hero small-hero">
+        <div class="hero-label">
+            ҚАУІПСІЗДІК КӨМЕКШІСІ
+        </div>
 
-div.textContent =
-text;
+        <h1>
+            Қазір не істеу керек?
+        </h1>
 
-messages.appendChild(div);
+        <p>
+            Бірнеше қысқа сұрақ арқылы қауіпсіз келесі қадамды анықта
+        </p>
+    </header>
 
-scrollChat();
 
-}
+    <nav class="navigation">
+        <a href="index.html" class="nav-link">Басты бет</a>
+        <a href="diagnostic.html" class="nav-link">Диагностика</a>
+        <a href="situations.html" class="nav-link">12 жағдаят</a>
+        <a href="practice.html" class="nav-link">Жаттығу</a>
+        <a href="helper.html" class="nav-link active">Көмекші</a>
+        <a href="teacher.html" class="nav-link">Мұғалімге</a>
+    </nav>
 
 
-function user(text) {
+    <main class="messenger-shell">
 
-const div =
-document.createElement("div");
+        <aside class="messenger-info">
 
-div.className =
-"message user-message";
+            <div class="helper-avatar-large">
+                Q
+            </div>
 
-div.textContent =
-text;
+            <span class="eyebrow">
+                ҚАУІПСІЗДІК КӨМЕКШІСІ
+            </span>
 
-messages.appendChild(div);
+            <h2>
+                Жалғыз шешуге міндетті емессің
+            </h2>
 
-scrollChat();
+            <p>
+                Көмекші жағдайды талқылап,
+                қауіпсіз алғашқы қадамды таңдауға көмектеседі.
+            </p>
 
-}
 
+            <div class="helper-rule">
+                <strong>01</strong>
+                Жеке дерек жазба
+            </div>
 
-function scrollChat() {
+            <div class="helper-rule">
+                <strong>02</strong>
+                Бұл жедел қызмет емес
+            </div>
 
-messages.scrollTop =
-messages.scrollHeight;
+            <div class="helper-rule">
+                <strong>03</strong>
+                Қауіп болса — ересекке хабарла
+            </div>
 
-}
+        </aside>
 
 
-function directDanger() {
+        <section class="messenger-window">
 
-user(
-"Иә, қазір қауіп бар"
-);
+            <div class="messenger-header">
 
+                <div class="helper-avatar">
+                    Q
+                </div>
 
-actions.innerHTML = "";
+                <div>
+                    <strong>
+                        Қауіпсіздік көмекшісі
+                    </strong>
 
+                    <span>
+                        ● онлайн
+                    </span>
+                </div>
 
-bot(
-"Бірінші міндет — қауіпсіз жерге бару. Қауіпті өзің жалғыз тоқтатуға тырыспа."
-);
+            </div>
 
 
-bot(
-"Мүмкін болса, жақын жердегі сенімді ересекке дереу хабарла."
-);
+            <div class="messenger-chat" id="helperMessages"></div>
 
 
-showPhrase(
-"Маған қазір көмек керек. Мен қауіпсіз емес жағдайдамын."
-);
+            <div class="typing-indicator hidden" id="typingIndicator">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
 
-}
 
+            <div class="messenger-actions" id="helperActions"></div>
 
-function chooseProblem() {
+        </section>
 
-user(
-"Қазір тікелей қауіп жоқ"
-);
-
-
-bot(
-"Жақсы. Қай жағдай саған көбірек ұқсайды?"
-);
-
-
-actions.innerHTML = `
-
-<button
-onclick="onlineProblem()">
-
-Онлайнда біреу мазалап жүр
-
-</button>
-
-
-<button
-onclick="bullyingProblem()">
-
-Мектепте мазақтау немесе буллинг
-
-</button>
-
-
-<button
-onclick="strangerProblem()">
-
-Бейтаныс адам алаңдатады
-
-</button>
-
-
-<button
-onclick="secretProblem()">
-
-«Ешкімге айтпа» деп қорқытты
-
-</button>
-
-
-<button
-onclick="otherProblem()">
-
-Басқа жағдай
-
-</button>
-
-`;
-
-}
-
-
-function onlineProblem() {
-
-user(
-"Онлайнда біреу мазалап жүр"
-);
-
-
-actions.innerHTML = "";
-
-
-bot(
-"Жауап беруге асықпа. Жеке ақпарат немесе сурет жіберме."
-);
-
-
-bot(
-"Қажет болса хабарламаның дәлелін сақтап, сенімді ересекке көрсет."
-);
-
-
-showPhrase(
-"Маған интернетте бір адам мазалап жазып жатыр. Мен жауап бермедім. Осыны бірге қарап беріңізші."
-);
-
-}
-
-
-function bullyingProblem() {
-
-user(
-"Мектепте мазақтау немесе буллинг"
-);
-
-
-actions.innerHTML = "";
-
-
-bot(
-"Өзіңді қауіпке салатын жанжалға кірме."
-);
-
-
-bot(
-"Не болғанын, қай жерде болғанын және кімге көмек қажет екенін жауапты ересекке нақты айт."
-);
-
-
-showPhrase(
-"Мектепте бір оқушыны қайта-қайта мазақтап жүр. Осы жағдайды тоқтатуға көмектесіңізші."
-);
-
-}
-
-
-function strangerProblem() {
-
-user(
-"Бейтаныс адам алаңдатады"
-);
-
-
-actions.innerHTML = "";
-
-
-bot(
-"Бейтаныс адамнан арақашықтық сақта және адамдар бар қауіпсіз жерге бар."
-);
-
-
-bot(
-"Онымен жалғыз барма және көлігіне отырма."
-);
-
-
-showPhrase(
-"Маған бейтаныс адам жақындап, өзімен бірге баруды ұсынды. Маған көмектесіңізші."
-);
-
-}
-
-
-function secretProblem() {
-
-user(
-"«Ешкімге айтпа» деп қорқытты"
-);
-
-
-actions.innerHTML = "";
-
-
-bot(
-"Қауіпке қатысты құпияны жалғыз сақтауға міндетті емессің."
-);
-
-
-bot(
-"Сенетін ересек адамға болған жағдайды айт."
-);
-
-
-showPhrase(
-"Маған бір адам болған жағдайды ешкімге айтпауды айтып, қорқытты. Маған көмек керек."
-);
-
-}
-
-
-function friendHelp() {
-
-user(
-"Досыма көмектескім келеді"
-);
-
-
-actions.innerHTML = "";
-
-
-bot(
-"Досыңды тыңда және оны кінәлама."
-);
-
-
-bot(
-"Егер жағдай оның қауіпсіздігіне қатысты болса, оны жалғыз шешуге тырыспай, сенімді ересектің көмегіне жүгін."
-);
-
-
-showPhrase(
-"Досымның қауіпсіздігіне қатысты жағдай бар. Бізге ересек адамның көмегі керек."
-);
-
-}
-
-
-function otherProblem() {
-
-user(
-"Басқа жағдай"
-);
-
-
-actions.innerHTML = "";
-
-
-bot(
-"Егер не істеу керегіне сенімді болмасаң, қауіптен алыстау және сенімді ересекке нақты не болғанын айту — қауіпсіз алғашқы қадам."
-);
-
-
-showPhrase(
-"Маған бір жағдай туралы айту керек. Не істеу керегіне сенімді емеспін. Маған көмектесіңізші."
-);
-
-}
-
-
-function showPhrase(text) {
-
-const box =
-document.createElement("div");
-
-
-box.className =
-"helper-phrase";
-
-
-box.innerHTML = `
-
-<span>
-ЕРЕСЕККЕ АЙТАТЫН СӨЗ
-</span>
-
-<p>
-“${text}”
-</p>
-
-<button
-onclick="restartHelper()">
-Басқа жағдайды қарау
-</button>
-
-`;
-
-
-messages.appendChild(box);
-
-scrollChat();
-
-}
-
-
-function restartHelper() {
-
-messages.innerHTML = `
-
-<div class="message bot-message">
-
-Жаңа жағдайды қарайық.
+    </main>
 
 </div>
 
-<div class="message bot-message">
+<script src="./helper.js?v=50"></script>
 
-Қазір саған немесе басқа адамға
-тікелей қауіп төніп тұр ма?
-
-</div>
-
-`;
-
-
-actions.innerHTML = `
-
-<button onclick="directDanger()">
-Иә, қазір қауіп бар
-</button>
-
-<button onclick="chooseProblem()">
-Қазір тікелей қауіп жоқ
-</button>
-
-<button onclick="friendHelp()">
-Досыма көмектескім келеді
-</button>
-
-`;
-
-}
+</body>
+</html>
