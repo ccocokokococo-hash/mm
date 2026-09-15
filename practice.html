@@ -1,245 +1,152 @@
 <!DOCTYPE html>
-
 <html lang="kk">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Жаттығу | Қауіпсіз шешім зертханасы</title>
 
-<title>Жаттығу | Қауіпсіз шешім зертханасы</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="./style.css?v=50">
 </head>
-
 
 <body>
 
 <div class="container">
 
+    <header class="hero small-hero">
+        <div class="hero-label">
+            ИНТЕРАКТИВТІ ЖАТТЫҒУ
+        </div>
 
-<header class="hero small-hero">
+        <h1>
+            Бір жағдаят. Үш шешім.
+        </h1>
 
-<div class="hero-label">
-ИНТЕРАКТИВТІ ЖАТТЫҒУ
-</div>
-
-<h1>
-Шешімді өзің таңда
-</h1>
-
-<p>
-Оқы → салыстыр → таңда → түсіндір → көмек сұра
-</p>
-
-</header>
+        <p>
+            Қай әрекет қауіпсіз екенін өзің анықта
+        </p>
+    </header>
 
 
-<nav class="navigation">
-
-<a href="index.html" class="nav-link">
-Басты бет
-</a>
-
-<a href="diagnostic.html" class="nav-link">
-Диагностика
-</a>
-
-<a href="situations.html" class="nav-link">
-12 жағдаят
-</a>
-
-<a href="practice.html" class="nav-link active">
-Жаттығу
-</a>
-
-<a href="helper.html" class="nav-link">
-Көмекші
-</a>
-
-<a href="teacher.html" class="nav-link">
-Мұғалімге
-</a>
-
-</nav>
+    <nav class="navigation">
+        <a href="index.html" class="nav-link">Басты бет</a>
+        <a href="diagnostic.html" class="nav-link">Диагностика</a>
+        <a href="situations.html" class="nav-link">12 жағдаят</a>
+        <a href="practice.html" class="nav-link active">Жаттығу</a>
+        <a href="helper.html" class="nav-link">Көмекші</a>
+        <a href="teacher.html" class="nav-link">Мұғалімге</a>
+    </nav>
 
 
-<section class="practice-layout">
+    <main class="practice-shell">
+
+        <div class="practice-toolbar">
+
+            <div>
+                <span id="practiceCategory" class="practice-category"></span>
+                <span id="practiceSkill" class="practice-skill"></span>
+            </div>
+
+            <div class="practice-count">
+                <strong id="practiceCurrent">01</strong>
+                <span>/ 12</span>
+            </div>
+
+        </div>
 
 
-<div class="practice-main">
+        <div class="practice-progress-track">
+            <div id="practiceProgressFill"></div>
+        </div>
 
 
-<div class="practice-meta">
+        <section class="practice-scene">
 
-<span id="practiceCategory">
-ОНЛАЙН
-</span>
+            <div class="practice-scene-number" id="sceneNumber">
+                01
+            </div>
 
-<span id="practiceCounter">
-05 / 12
-</span>
+            <div class="practice-scene-content">
 
-</div>
+                <span>
+                    ЖАҒДАЯТ
+                </span>
 
+                <h2 id="practiceTitle"></h2>
 
-<h2 id="practiceTitle">
-Жағдаят
-</h2>
+                <p id="practiceText"></p>
 
+            </div>
 
-<p class="practice-question"
-id="practiceText">
-</p>
+        </section>
 
 
-<div class="practice-label">
-СЕНІҢ АЛҒАШҚЫ ӘРЕКЕТІҢ ҚАНДАЙ?
-</div>
+        <section>
+
+            <div class="practice-question-title">
+                Сенің алғашқы әрекетің қандай?
+            </div>
+
+            <div id="practiceOptions" class="practice-choice-grid"></div>
+
+        </section>
 
 
-<div id="practiceOptions"
-class="practice-options">
-</div>
+        <section id="practiceFeedback" class="practice-feedback hidden">
+
+            <div class="feedback-result-icon" id="feedbackIcon">
+                ✓
+            </div>
+
+            <div>
+
+                <span id="feedbackLabel">
+                    ҚАУІПСІЗ ШЕШІМ
+                </span>
+
+                <h3 id="feedbackHeading"></h3>
+
+                <p id="feedbackText"></p>
+
+            </div>
+
+        </section>
 
 
-<div id="feedbackBox"
-class="feedback-box hidden">
+        <section id="practicePhrase" class="practice-phrase-panel hidden">
 
-<span id="feedbackStatus">
-НӘТИЖЕ
-</span>
+            <div>
 
-<h3 id="feedbackTitle"></h3>
+                <span>
+                    ЕРЕСЕККЕ ҚАЛАЙ АЙТАМЫН?
+                </span>
 
-<p id="feedbackText"></p>
+                <p id="phraseText"></p>
 
-</div>
+            </div>
 
+            <button onclick="speakPhrase()">
+                ▶ Тыңдау
+            </button>
 
-<div id="sayBox"
-class="say-box hidden">
-
-<span>
-ЕРЕСЕККЕ ҚАЛАЙ АЙТАМЫН?
-</span>
-
-<p id="sayText"></p>
-
-<button onclick="speakPhrase()"
-class="speak-btn">
-▶ Сөйлемді тыңдау
-</button>
-
-</div>
+        </section>
 
 
-<div id="nextArea"
-class="next-area hidden">
+        <div id="practiceNext" class="practice-next hidden">
 
-<button onclick="nextSituation()"
-class="primary-btn">
+            <button onclick="nextSituation()" class="primary-btn">
+                Келесі жағдаят →
+            </button>
 
-Келесі жағдаят →
+        </div>
 
-</button>
-
-</div>
-
-
-</div>
-
-
-<aside class="practice-side">
-
-<span class="eyebrow">
-7 МИНУТ
-</span>
-
-<h3>
-Бір картамен жұмыс
-</h3>
-
-
-<div class="mini-step">
-
-<strong>
-1 минут
-</strong>
-
-<span>
-Жағдаятты оқы
-</span>
+    </main>
 
 </div>
 
 
-<div class="mini-step">
-
-<strong>
-2 минут
-</strong>
-
-<span>
-Үш нұсқаны салыстыр
-</span>
-
-</div>
-
-
-<div class="mini-step">
-
-<strong>
-2 минут
-</strong>
-
-<span>
-Неге таңдағаныңды түсіндір
-</span>
-
-</div>
-
-
-<div class="mini-step">
-
-<strong>
-2 минут
-</strong>
-
-<span>
-Көмек сұрауды жаттықтыр
-</span>
-
-</div>
-
-
-<div class="side-note">
-
-<strong>
-Есіңде болсын
-</strong>
-
-<p>
-Мақсат — тесттен жоғары балл алу емес.
-Мақсат — шынайы жағдайда алғашқы
-қауіпсіз қадамды еске түсіру.
-</p>
-
-</div>
-
-
-</aside>
-
-
-</section>
-
-</div>
-
-
-<script src="situations.js"></script>
-<script src="practice.js"></script>
+<script src="./situations.js"></script>
+<script src="./practice.js?v=50"></script>
 
 </body>
-
 </html>
