@@ -1,376 +1,438 @@
-const diagnosticQuestions = [
+const questions = [
+    {
+        category: "АУЫЛ ЖӘНЕ ЖОЛ",
+        skill: "danger",
+        skillName: "Қауіпті тану",
+        title: "Қараңғы қысқа жол",
+        text: "Үйге баратын қысқа жол қараңғы және адам аз. Ұзағырақ жол жарық әрі адамдар жүреді. Қауіп белгісі қайсы?",
+        answers: [
+            { text: "Қысқа жолдың өзі қауіпсіз", score: 0 },
+            { text: "Қараңғы әрі адам аз болуы — қауіп белгісі", score: 1 },
+            { text: "Тек кешіксем ғана қауіпті", score: 0 }
+        ]
+    },
 
-{
-  skill: "danger",
-  skillName: "Қауіпті тану",
-  category: "АУЫЛ ЖӘНЕ ЖОЛ",
-  title: "Қараңғы қысқа жол",
-  text: "Үйге қайтатын қысқа жол қараңғы және онда адам аз. Ұзақ жол жарық әрі адамдар жүреді. Бұл жерде қауіп белгісі бар ма?",
-  answers: [
-    { text: "Жоқ, қысқа болса жеткілікті", score: 0 },
-    { text: "Иә, қараңғы және адам аз болуы қауіп белгісі", score: 1 },
-    { text: "Тек кешіккенде ғана қауіпті", score: 0 }
-  ]
-},
+    {
+        category: "ОНЛАЙН",
+        skill: "danger",
+        skillName: "Қауіпті тану",
+        title: "Белгісіз аккаунт",
+        text: "Белгісіз аккаунт сенен суретіңді, мектебіңді және қай жерде тұратыныңды сұрады.",
+        answers: [
+            { text: "Бұл жай танысу", score: 0 },
+            { text: "Бұл жеке дерекке қатысты қауіп белгісі", score: 1 },
+            { text: "Аккаунтта сурет болса, қауіп жоқ", score: 0 }
+        ]
+    },
 
-{
-  skill: "danger",
-  skillName: "Қауіпті тану",
-  category: "ОНЛАЙН",
-  title: "Белгісіз аккаунт",
-  text: "Белгісіз аккаунт сенен жеке суретіңді және қай мектепте оқитыныңды сұрады.",
-  answers: [
-    { text: "Бұл қалыпты танысу", score: 0 },
-    { text: "Бұл жеке дерекке қатысты қауіп белгісі", score: 1 },
-    { text: "Егер аккаунтта сурет болса, қауіп жоқ", score: 0 }
-  ]
-},
+    {
+        category: "ҚАРЫМ-ҚАТЫНАС",
+        skill: "danger",
+        skillName: "Қауіпті тану",
+        title: "«Ешкімге айтпа»",
+        text: "Бір адам сені қорқытып, болған жағдай туралы ешкімге айтпауды талап етті.",
+        answers: [
+            { text: "Бұл маңызды қауіп белгісі", score: 1 },
+            { text: "Үндемеген дұрыс", score: 0 },
+            { text: "Мүмкін жай әзіл шығар", score: 0 }
+        ]
+    },
 
-{
-  skill: "danger",
-  skillName: "Қауіпті тану",
-  category: "ҚАРЫМ-ҚАТЫНАС",
-  title: "«Ешкімге айтпа»",
-  text: "Бір адам сені қорқытып, болған жағдайды ешкімге айтпауды талап етті.",
-  answers: [
-    { text: "Бұл маңызды қауіп белгісі", score: 1 },
-    { text: "Үндемеген дұрыс", score: 0 },
-    { text: "Бұл жай әзіл болуы мүмкін", score: 0 }
-  ]
-},
+    {
+        category: "ОНЛАЙН",
+        skill: "action",
+        skillName: "Қауіпсіз әрекет",
+        title: "Сынып чатындағы сурет",
+        text: "Бір оқушының суретін мазақтап таратып жатыр. Сенің алғашқы әрекетің?",
+        answers: [
+            { text: "Басқа чатқа да жіберемін", score: 0 },
+            { text: "Таратпаймын және жауапты ересекке хабарлаймын", score: 1 },
+            { text: "Мазаққа эмодзи қоямын", score: 0 }
+        ]
+    },
 
-{
-  skill: "action",
-  skillName: "Қауіпсіз әрекет",
-  category: "ОНЛАЙН",
-  title: "Сынып чатындағы келемеж",
-  text: "Сынып чатында бір оқушының суретін мазақтап таратып жатыр. Сенің алғашқы әрекетің?",
-  answers: [
-    { text: "Суретті әрі қарай жіберу", score: 0 },
-    { text: "Таратпау және жауапты ересекке хабарлау", score: 1 },
-    { text: "Мазаққа қосылу", score: 0 }
-  ]
-},
+    {
+        category: "АУЫЛ ЖӘНЕ ЖОЛ",
+        skill: "action",
+        skillName: "Қауіпсіз әрекет",
+        title: "Аялдамадағы бейтаныс адам",
+        text: "Бейтаныс адам сені көлікпен үйге жеткізіп салуды ұсынды.",
+        answers: [
+            { text: "Көлікке отырамын", score: 0 },
+            { text: "Бас тартып, адамдар бар жерге барамын", score: 1 },
+            { text: "Алдымен қайда баратынын сұраймын", score: 0 }
+        ]
+    },
 
-{
-  skill: "action",
-  skillName: "Қауіпсіз әрекет",
-  category: "АУЫЛ ЖӘНЕ ЖОЛ",
-  title: "Бейтаныс адам",
-  text: "Аялдамада бейтаныс адам көлігіне отыруды ұсынды.",
-  answers: [
-    { text: "Тез жету үшін отыру", score: 0 },
-    { text: "Қауіпсіз жерге барып, сенімді ересекке хабарлау", score: 1 },
-    { text: "Алдымен қайда баратынын сұрау", score: 0 }
-  ]
-},
+    {
+        category: "ТӨТЕНШЕ ЖАҒДАЙ",
+        skill: "action",
+        skillName: "Қауіпсіз әрекет",
+        title: "Үзілген электр сымы",
+        text: "Жерде үзілген электр сымына ұқсайтын зат жатыр.",
+        answers: [
+            { text: "Таяқпен қозғап көремін", score: 0 },
+            { text: "Қолмен шетке аламын", score: 0 },
+            { text: "Жақындамай, ересекке хабарлаймын", score: 1 }
+        ]
+    },
 
-{
-  skill: "action",
-  skillName: "Қауіпсіз әрекет",
-  category: "ТӨТЕНШЕ ЖАҒДАЙ",
-  title: "Электр сымы",
-  text: "Жерде үзілген электр сымына ұқсайтын зат жатыр.",
-  answers: [
-    { text: "Жақындап қарау", score: 0 },
-    { text: "Таяқпен жылжыту", score: 0 },
-    { text: "Жақындамау және ересекке хабарлау", score: 1 }
-  ]
-},
+    {
+        category: "ҚАРЫМ-ҚАТЫНАС",
+        skill: "help",
+        skillName: "Көмек сұрау",
+        title: "Буллинг",
+        text: "Бір оқушыны бірнеше күннен бері мазақтап жүр. Қалай дұрыс көмек сұрайсың?",
+        answers: [
+            { text: "«Бірдеңе болып жатыр»", score: 0 },
+            { text: "«Бір оқушыны бірнеше күннен бері қорлап жүр. Көмектесіңізші»", score: 1 },
+            { text: "Ешкімге айтпаймын", score: 0 }
+        ]
+    },
 
-{
-  skill: "help",
-  skillName: "Көмек сұрау",
-  category: "ҚАРЫМ-ҚАТЫНАС",
-  title: "Буллинг",
-  text: "Сыныпта бір оқушыны бірнеше күннен бері қорлап жүр. Көмекті қалай сұраған дұрыс?",
-  answers: [
-    { text: "«Бірдеңе болып жатыр»", score: 0 },
-    { text: "«Бір оқушыны бірнеше күннен бері қорлап жүр. Осы жағдайды тоқтатуға көмектесіңізші»", score: 1 },
-    { text: "Ешкімге айтпау", score: 0 }
-  ]
-},
+    {
+        category: "ОНЛАЙН",
+        skill: "help",
+        skillName: "Көмек сұрау",
+        title: "Қорқынышты хабарлама",
+        text: "Белгісіз адам саған қорқынышты хабарламалар жіберді.",
+        answers: [
+            { text: "«Телефонымда бірдеңе бар»", score: 0 },
+            { text: "«Белгісіз адам маған қорқынышты хабарлама жіберіп жатыр. Маған көмектесіңізші»", score: 1 },
+            { text: "Айтпаймын", score: 0 }
+        ]
+    },
 
-{
-  skill: "help",
-  skillName: "Көмек сұрау",
-  category: "ОНЛАЙН",
-  title: "Қорқынышты хабарлама",
-  text: "Белгісіз адам саған қорқынышты хабарлама жіберді. Сенімді ересекке не айтасың?",
-  answers: [
-    { text: "«Телефонымда бірдеңе бар»", score: 0 },
-    { text: "«Белгісіз адам маған қорқынышты хабарлама жіберді. Маған көмектесіңізші»", score: 1 },
-    { text: "Айтпаймын", score: 0 }
-  ]
-},
-
-{
-  skill: "help",
-  skillName: "Көмек сұрау",
-  category: "ТӨТЕНШЕ ЖАҒДАЙ",
-  title: "Жарақат алған оқушы",
-  text: "Мектеп ауласында оқушы құлап, қатты жарақат алған сияқты.",
-  answers: [
-    { text: "«Мұғалім, аулада оқушы жарақат алды. Тезірек көмек керек»", score: 1 },
-    { text: "Достарыма ғана айтамын", score: 0 },
-    { text: "Өзі тұрып кетер деп күтемін", score: 0 }
-  ]
-}
-
+    {
+        category: "ТӨТЕНШЕ ЖАҒДАЙ",
+        skill: "help",
+        skillName: "Көмек сұрау",
+        title: "Жарақат алған оқушы",
+        text: "Мектеп ауласында оқушы қатты құлап, орнынан тұра алмай жатыр.",
+        answers: [
+            { text: "«Мұғалім, аулада оқушы құлап қалды. Тез көмек керек»", score: 1 },
+            { text: "Тек достарыма айтамын", score: 0 },
+            { text: "Өзі тұрады деп күтемін", score: 0 }
+        ]
+    }
 ];
 
-let currentQuestion = 0;
 
-let scores = {
-  danger: 0,
-  action: 0,
-  help: 0
-};
+let current = 0;
 
-let totals = {
-  danger: 0,
-  action: 0,
-  help: 0
+let selectedAnswer = null;
+
+const score = {
+    danger: 0,
+    action: 0,
+    help: 0
 };
 
 
-function startDiagnostic() {
+function initDiagnostic() {
+    createSteps();
+    renderQuestion();
+}
 
-  document.getElementById("intro").classList.add("hidden");
-  document.getElementById("quiz").classList.remove("hidden");
 
-  showQuestion();
+function createSteps() {
+
+    const wrapper =
+        document.getElementById("stepList");
+
+    wrapper.innerHTML = "";
+
+    questions.forEach((q, index) => {
+
+        const item =
+            document.createElement("div");
+
+        item.className =
+            "diag-step-dot";
+
+        item.id =
+            `step-${index}`;
+
+        item.innerHTML = `
+            <span>${index + 1}</span>
+            <small>${q.skillName}</small>
+        `;
+
+        wrapper.appendChild(item);
+
+    });
 
 }
 
 
-function showQuestion() {
+function renderQuestion() {
 
-  const q = diagnosticQuestions[currentQuestion];
+    const q =
+        questions[current];
 
-  document.getElementById("questionNumber").textContent =
-    `${currentQuestion + 1} / ${diagnosticQuestions.length}`;
+    selectedAnswer = null;
 
-  document.getElementById("skillLabel").textContent = q.skillName;
+    document.getElementById("diagCategory").textContent =
+        q.category;
 
-  document.getElementById("questionCategory").textContent =
-    q.category;
+    document.getElementById("diagSkill").textContent =
+        q.skillName;
 
-  document.getElementById("questionTitle").textContent =
-    q.title;
+    document.getElementById("diagCounter").textContent =
+        `${current + 1} / ${questions.length}`;
 
-  document.getElementById("questionText").textContent =
-    q.text;
+    document.getElementById("diagNumber").textContent =
+        String(current + 1).padStart(2, "0");
 
-  const progress =
-    ((currentQuestion + 1) / diagnosticQuestions.length) * 100;
+    document.getElementById("diagTitle").textContent =
+        q.title;
 
-  document.getElementById("progressBar").style.width =
-    progress + "%";
-
-
-  const answers = document.getElementById("answers");
-
-  answers.innerHTML = "";
+    document.getElementById("diagText").textContent =
+        q.text;
 
 
-  q.answers.forEach((answer, index) => {
+    const progress =
+        ((current + 1) / questions.length) * 100;
 
-    const button = document.createElement("button");
+    document.getElementById("diagProgressFill").style.width =
+        `${progress}%`;
 
-    button.className = "diagnostic-answer";
 
-    button.innerHTML = `
-      <span>${String.fromCharCode(65 + index)}</span>
-      ${answer.text}
-    `;
+    document
+        .querySelectorAll(".diag-step-dot")
+        .forEach((step, index) => {
 
-    button.onclick = () => selectAnswer(answer);
+            step.classList.remove(
+                "active",
+                "done"
+            );
 
-    answers.appendChild(button);
+            if (index < current) {
+                step.classList.add("done");
+            }
 
-  });
+            if (index === current) {
+                step.classList.add("active");
+            }
+
+        });
+
+
+    const answerWrap =
+        document.getElementById("diagAnswers");
+
+    answerWrap.innerHTML = "";
+
+
+    q.answers.forEach((answer, index) => {
+
+        const button =
+            document.createElement("button");
+
+        button.className =
+            "diag-answer-card";
+
+        button.innerHTML = `
+            <span class="diag-answer-letter">
+                ${String.fromCharCode(65 + index)}
+            </span>
+
+            <span class="diag-answer-text">
+                ${answer.text}
+            </span>
+
+            <span class="diag-answer-check">
+                ✓
+            </span>
+        `;
+
+        button.onclick =
+            () => selectAnswer(index, button);
+
+        answerWrap.appendChild(button);
+
+    });
+
+
+    const nextBtn =
+        document.getElementById("nextQuestionBtn");
+
+    nextBtn.disabled = true;
 
 }
 
 
-function selectAnswer(answer) {
+function selectAnswer(index, button) {
 
-  const q = diagnosticQuestions[currentQuestion];
+    selectedAnswer = index;
 
-  totals[q.skill]++;
+    document
+        .querySelectorAll(".diag-answer-card")
+        .forEach(item =>
+            item.classList.remove("selected")
+        );
 
-  scores[q.skill] += answer.score;
+    button.classList.add("selected");
 
-  currentQuestion++;
-
-  if (currentQuestion < diagnosticQuestions.length) {
-
-    showQuestion();
-
-  } else {
-
-    showResults();
-
-  }
+    document.getElementById("nextQuestionBtn").disabled =
+        false;
 
 }
 
 
-function percentage(skill) {
+function goNextQuestion() {
 
-  if (!totals[skill]) return 0;
+    if (selectedAnswer === null) return;
 
-  return Math.round(
-    scores[skill] / totals[skill] * 100
-  );
+    const q =
+        questions[current];
+
+    score[q.skill] +=
+        q.answers[selectedAnswer].score;
+
+
+    current++;
+
+
+    if (current < questions.length) {
+
+        renderQuestion();
+
+        document
+            .querySelector(".diagnostic-stage")
+            .scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+    } else {
+
+        showResults();
+
+    }
 
 }
 
 
 function showResults() {
 
-  document.getElementById("quiz").classList.add("hidden");
+    document
+        .getElementById("quizScreen")
+        .classList.add("hidden");
 
-  document.getElementById("results").classList.remove("hidden");
-
-
-  const results = {
-
-    danger: percentage("danger"),
-    action: percentage("action"),
-    help: percentage("help")
-
-  };
+    document
+        .getElementById("resultScreen")
+        .classList.remove("hidden");
 
 
-  setResult(
-    "danger",
-    results.danger
-  );
-
-  setResult(
-    "action",
-    results.action
-  );
-
-  setResult(
-    "help",
-    results.help
-  );
+    const values = {
+        danger: Math.round(score.danger / 3 * 100),
+        action: Math.round(score.action / 3 * 100),
+        help: Math.round(score.help / 3 * 100)
+    };
 
 
-  const skillNames = {
-
-    danger: "Қауіпті тану",
-    action: "Қауіпсіз әрекетті таңдау",
-    help: "Көмек сұрау"
-
-  };
+    setResult("danger", values.danger);
+    setResult("action", values.action);
+    setResult("help", values.help);
 
 
-  const weakest = Object.keys(results).reduce(
-    (a, b) => results[a] <= results[b] ? a : b
-  );
+    const weakest =
+        Object.keys(values)
+            .reduce((a, b) =>
+                values[a] <= values[b] ? a : b
+            );
 
 
-  document.getElementById("weakSkill").textContent =
-    skillNames[weakest];
+    const route = {
+        danger: {
+            title: "Қауіпті белгіні байқауды жаттықтыр",
+            text: "Алдымен қауіп белгілері анық көрінбейтін жағдаяттармен жұмыс істе."
+        },
+
+        action: {
+            title: "Алғашқы қауіпсіз қадамға назар аудар",
+            text: "Бірнеше әрекетті салыстырып, қауіпсіз нұсқаны таңдауды көбірек жаттықтыр."
+        },
+
+        help: {
+            title: "Көмек сұрау сөйлемдерін жаттықтыр",
+            text: "Жағдайды ересекке қысқа әрі нақты айтуды қайталау пайдалы."
+        }
+    };
 
 
-  const recommendations = {
+    document.getElementById("routeTitle").textContent =
+        route[weakest].title;
 
-    danger:
-      "Жағдаяттағы қауіп белгілерін байқауға арналған карталардан баста.",
-
-    action:
-      "Бірнеше әрекетті салыстырып, ең қауіпсіз алғашқы қадамды таңдауды жаттықтыр.",
-
-    help:
-      "Сенімді ересекке болған жағдайды қысқа әрі нақты сөйлеммен айтуды жаттықтыр."
-
-  };
+    document.getElementById("routeText").textContent =
+        route[weakest].text;
 
 
-  document.getElementById("recommendationText").textContent =
-    recommendations[weakest];
-
-
-  localStorage.setItem(
-    "weakSkill",
-    weakest
-  );
-
-  localStorage.setItem(
-    "diagnosticResults",
-    JSON.stringify(results)
-  );
+    localStorage.setItem(
+        "weakSkill",
+        weakest
+    );
 
 }
 
 
 function setResult(skill, value) {
 
-  const percent =
-    document.getElementById(skill + "Percent");
+    document.getElementById(`${skill}Score`).textContent =
+        `${value}%`;
 
-  const bar =
-    document.getElementById(skill + "Bar");
-
-  const text =
-    document.getElementById(skill + "Text");
-
-
-  percent.textContent =
-    value + "%";
-
-  setTimeout(() => {
-    bar.style.width = value + "%";
-  }, 100);
+    document.getElementById(`${skill}Ring`).style.background =
+        `conic-gradient(
+            #078d83 ${value}%,
+            #e6eeee ${value}% 100%
+        )`;
 
 
-  if (value >= 80) {
+    let text = "";
 
-    text.textContent =
-      "Бұл дағды жақсы қалыптасқан.";
+    if (value >= 80) {
+        text = "Бұл дағды сенімді қалыптасқан.";
+    }
 
-  }
+    else if (value >= 50) {
+        text = "Дағды бар, бірақ тағы бірнеше жаттығу пайдалы.";
+    }
 
-  else if (value >= 50) {
+    else {
+        text = "Бұл бағытқа көбірек жаттығу қажет.";
+    }
 
-    text.textContent =
-      "Дағды бар, бірақ бірнеше жағдаятпен тағы жаттықтыру пайдалы.";
 
-  }
-
-  else {
-
-    text.textContent =
-      "Бұл бағытқа көбірек назар аудару қажет.";
-
-  }
+    document.getElementById(
+        `${skill}Description`
+    ).textContent = text;
 
 }
 
 
 function restartDiagnostic() {
 
-  currentQuestion = 0;
+    current = 0;
 
-  scores = {
-    danger: 0,
-    action: 0,
-    help: 0
-  };
+    selectedAnswer = null;
 
-  totals = {
-    danger: 0,
-    action: 0,
-    help: 0
-  };
+    score.danger = 0;
+    score.action = 0;
+    score.help = 0;
 
-  document.getElementById("results").classList.add("hidden");
 
-  document.getElementById("intro").classList.remove("hidden");
+    document
+        .getElementById("resultScreen")
+        .classList.add("hidden");
+
+    document
+        .getElementById("quizScreen")
+        .classList.remove("hidden");
+
+    renderQuestion();
 
 }
+
+
+initDiagnostic();
