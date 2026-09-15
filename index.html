@@ -1,596 +1,1198 @@
-<!-- =====================================================
-     3 НЕГІЗГІ ДАҒДЫ
-===================================================== -->
+<!DOCTYPE html>
+<html lang="kk">
 
-<section class="section-card">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <div class="section-head">
-    <div>
-      <span class="eyebrow">ЗЕРТХАНА НЕГІЗІ</span>
-      <h2>Үш негізгі қауіпсіздік дағдысы</h2>
-    </div>
+    <title>Қауіпсіз шешім зертханасы</title>
 
-    <p class="section-note">
-      Диагностика да, 12 жағдаят та осы үш дағдыға негізделеді.
-    </p>
-  </div>
+    <!-- БАРЛЫҚ ДИЗАЙН ОСЫ ФАЙЛДАН АЛЫНАДЫ -->
+    <link rel="stylesheet" href="style.css">
+</head>
 
-  <div class="skill-grid">
 
-    <article class="skill-card">
+<body>
 
-      <div class="skill-top">
-        <span class="skill-number">01</span>
-        <span class="skill-tag">БАЙҚА</span>
-      </div>
+<div class="container">
 
-      <h3>Қауіпті тану</h3>
 
-      <p>
-        Жағдаяттағы қауіп белгісін анықтау:
-        не болып жатыр, кімге қауіп төнуі мүмкін,
-        қандай белгіге назар аудару керек?
-      </p>
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
 
-      <div class="skill-example">
-        <span>Мысал</span>
-        Бейтаныс аккаунт жеке сурет сұрады.
-      </div>
+    <header class="hero">
 
-    </article>
-
-
-    <article class="skill-card">
-
-      <div class="skill-top">
-        <span class="skill-number">02</span>
-        <span class="skill-tag">ТАҢДА</span>
-      </div>
-
-      <h3>Қауіпсіз қадам</h3>
-
-      <p>
-        Үш әрекетті салыстырып,
-        өзін және басқа адамды қосымша қауіпке
-        салмайтын алғашқы қадамды таңдау.
-      </p>
-
-      <div class="skill-example">
-        <span>Мысал</span>
-        Хабарламаға жауап бермеу және дәлелді сақтау.
-      </div>
-
-    </article>
-
-
-    <article class="skill-card">
-
-      <div class="skill-top">
-        <span class="skill-number">03</span>
-        <span class="skill-tag">АЙТ</span>
-      </div>
-
-      <h3>Көмек сұрау</h3>
-
-      <p>
-        Қай ересекке жүгінуге болатынын анықтап,
-        болған жағдайды қысқа әрі нақты
-        сөйлеммен жеткізу.
-      </p>
-
-      <div class="skill-example">
-        <span>Мысал</span>
-        «Маған белгісіз адам жазып жатыр. Маған көмектесіңізші».
-      </div>
-
-    </article>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     ДИАГНОСТИКА
-===================================================== -->
-
-<section class="diagnostic-preview">
-
-  <div class="diagnostic-copy">
-
-    <span class="light-eyebrow">
-      ЖЕКЕ ДИАГНОСТИКА
-    </span>
-
-    <h2>
-      Қай дағдыңды бірінші
-      күшейту керек?
-    </h2>
-
-    <p>
-      Қысқа ситуациялық диагностикадан өт.
-      Сайт сенің жауаптарың бойынша үш
-      қауіпсіздік дағдысын жеке есептейді.
-    </p>
-
-    <div class="diagnostic-features">
-
-      <div>
-        <strong>9</strong>
-        <span>ситуациялық сұрақ</span>
-      </div>
-
-      <div>
-        <strong>3</strong>
-        <span>бағаланатын дағды</span>
-      </div>
-
-      <div>
-        <strong>1</strong>
-        <span>жеке ұсыныс</span>
-      </div>
-
-    </div>
-
-    <a href="diagnostic.html"
-       class="primary-btn">
-
-      Диагностиканы бастау
-      <span>→</span>
-
-    </a>
-
-  </div>
-
-
-  <!-- Бұл тек интерфейс үлгісі.
-       Нақты пайыз JS арқылы есептеледі. -->
-
-  <div class="diagnostic-demo">
-
-    <div class="demo-header">
-
-      <span>НӘТИЖЕ ҚАЛАЙ КӨРІНЕДІ?</span>
-
-      <div class="demo-status">
-        Жеке нәтиже
-      </div>
-
-    </div>
-
-    <div class="empty-result">
-
-      <div class="empty-circle">
-        ?
-      </div>
-
-      <h3>
-        Нәтиже әлі есептелмеді
-      </h3>
-
-      <p>
-        Диагностикадан кейін бұл жерде
-        сенің нақты нәтижелерің пайда болады.
-      </p>
-
-    </div>
-
-    <div class="result-placeholder">
-
-      <div class="placeholder-row">
-        <span>Қауіпті тану</span>
-        <div class="placeholder-line"></div>
-      </div>
-
-      <div class="placeholder-row">
-        <span>Қауіпсіз әрекет</span>
-        <div class="placeholder-line"></div>
-      </div>
-
-      <div class="placeholder-row">
-        <span>Көмек сұрау</span>
-        <div class="placeholder-line"></div>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     12 ЖАҒДАЯТ БАЗАСЫ
-===================================================== -->
-
-<section class="section-card">
-
-  <div class="section-head">
-
-    <div>
-      <span class="eyebrow">ЖАҒДАЯТТАР БАЗАСЫ</span>
-      <h2>Өмірде кездесетін 12 жағдай</h2>
-    </div>
-
-    <a href="situations.html"
-       class="text-link">
-      Барлығын ашу →
-    </a>
-
-  </div>
-
-
-  <div class="category-grid">
-
-    <article class="category-card">
-
-      <div class="category-icon">
-        01
-      </div>
-
-      <div>
-        <span class="category-count">
-          3 жағдаят
-        </span>
-
-        <h3>Ауыл және жол</h3>
-
-        <p>
-          Қараңғы жол, аялдамадағы
-          бейтаныс адам және жолдағы қауіп.
-        </p>
-      </div>
-
-      <span class="category-arrow">→</span>
-
-    </article>
-
-
-    <article class="category-card">
-
-      <div class="category-icon">
-        02
-      </div>
-
-      <div>
-        <span class="category-count">
-          3 жағдаят
-        </span>
-
-        <h3>Онлайн кеңістік</h3>
-
-        <p>
-          Жеке дерек, белгісіз аккаунт,
-          қауіпті сілтеме және онлайн қысым.
-        </p>
-      </div>
-
-      <span class="category-arrow">→</span>
-
-    </article>
-
-
-    <article class="category-card">
-
-      <div class="category-icon">
-        03
-      </div>
-
-      <div>
-        <span class="category-count">
-          3 жағдаят
-        </span>
-
-        <h3>Қарым-қатынас</h3>
-
-        <p>
-          Буллинг, сынып чаты,
-          қорқыту және досқа көмектесу.
-        </p>
-      </div>
-
-      <span class="category-arrow">→</span>
-
-    </article>
-
-
-    <article class="category-card">
-
-      <div class="category-icon">
-        04
-      </div>
-
-      <div>
-        <span class="category-count">
-          3 жағдаят
-        </span>
-
-        <h3>Төтенше жағдай</h3>
-
-        <p>
-          Түтін, жарақат, электр
-          және басқа күтпеген қауіп.
-        </p>
-      </div>
-
-      <span class="category-arrow">→</span>
-
-    </article>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     БІР КАРТА ҚАЛАЙ ЖҰМЫС ІСТЕЙДІ
-===================================================== -->
-
-<section class="section-card">
-
-  <span class="eyebrow">
-    ИНТЕРАКТИВТІ ЖАТТЫҒУ
-  </span>
-
-  <h2>
-    Бір жағдаят қалай өтеді?
-  </h2>
-
-
-  <div class="scenario-example">
-
-    <div class="scenario-info">
-
-      <div class="scenario-meta">
-
-        <span>
-          ОНЛАЙН ҚАУІПСІЗДІК
-        </span>
-
-        <span>
-          ЖАҒДАЯТ 05
-        </span>
-
-      </div>
-
-      <h3>
-        Сынып чатындағы келемеж
-      </h3>
-
-      <p>
-        Сынып чатында бір оқушының суретін
-        келемеждеп таратып жатыр.
-        Саған да оны басқа чатқа жіберуді сұрады.
-      </p>
-
-
-      <div class="question-label">
-        Сенің алғашқы әрекетің қандай?
-      </div>
-
-    </div>
-
-
-    <div class="choice-list">
-
-      <button class="choice">
-        <span>A</span>
-        Суретті басқа достарыма да жіберемін
-      </button>
-
-      <button class="choice safe">
-        <span>B</span>
-        Таратпаймын, оқушыны қолдап,
-        жауапты ересекке хабарлаймын
-      </button>
-
-      <button class="choice">
-        <span>C</span>
-        Ештеңе болмағандай чаттан шығып кетемін
-      </button>
-
-    </div>
-
-  </div>
-
-
-  <div class="answer-preview">
-
-    <div class="answer-icon">
-      ✓
-    </div>
-
-    <div>
-
-      <span class="answer-label">
-        ҚАУІПСІЗ ШЕШІМ
-      </span>
-
-      <h3>
-        Суретті әрі қарай таратпау
-      </h3>
-
-      <p>
-        Мазақтайтын материалды қайта жіберу
-        жағдайды күшейтеді. Өзің араласып
-        жанжал шығармай, жауапты ересекке хабарла.
-      </p>
-
-    </div>
-
-  </div>
-
-
-  <div class="say-card">
-
-    <div class="quote-mark">
-      “
-    </div>
-
-    <div>
-
-      <span>
-        ЕРЕСЕККЕ ҚАЛАЙ АЙТАМЫН?
-      </span>
-
-      <p>
-        Сынып чатында бір оқушыны келемеждеп жатыр.
-        Мен суретті таратпадым.
-        Осы жағдайды тоқтатуға көмектесіңізші.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     КӨМЕКШІ
-===================================================== -->
-
-<section class="helper-section">
-
-  <div>
-
-    <span class="light-eyebrow">
-      ҚАУІПСІЗДІК КӨМЕКШІСІ
-    </span>
-
-    <h2>
-      Не істеріңді білмей
-      тұрсың ба?
-    </h2>
-
-    <p>
-      Бірнеше қысқа сұраққа жауап бер.
-      Көмекші жағдайды бағалауға емес,
-      қауіпсіз келесі қадамды таңдауға көмектеседі.
-    </p>
-
-    <a href="helper.html"
-       class="light-button">
-      Көмекшіні ашу →
-    </a>
-
-  </div>
-
-
-  <div class="chat-preview">
-
-    <div class="chat-head">
-
-      <div class="bot-avatar">
-        Q
-      </div>
-
-      <div>
-        <strong>Қауіпсіздік көмекшісі</strong>
-        <span>Қадамдық көмек</span>
-      </div>
-
-    </div>
-
-
-    <div class="message bot">
-      Қазір саған немесе басқа адамға
-      тікелей қауіп төніп тұр ма?
-    </div>
-
-
-    <div class="quick-buttons">
-
-      <button>
-        Иә, қауіп бар
-      </button>
-
-      <button>
-        Жоқ, бірақ алаңдап тұрмын
-      </button>
-
-      <button>
-        Досыма көмектескім келеді
-      </button>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     МҰҒАЛІМ ҮШІН
-===================================================== -->
-
-<section class="section-card">
-
-  <div class="teacher-grid">
-
-    <div>
-
-      <span class="eyebrow">
-        МҰҒАЛІМ ҮШІН
-      </span>
-
-      <h2>
-        Сыныпта бірден қолдануға болады
-      </h2>
-
-      <p class="section-description">
-        Жағдаятты экраннан көрсетуге немесе
-        карточкаларды қағазға шығарып пайдалануға болады.
-        Оқушының аты-жөнін сайтқа енгізу міндетті емес.
-      </p>
-
-      <a href="teacher.html"
-         class="outline-btn">
-        Әдістемені қарау →
-      </a>
-
-    </div>
-
-
-    <div class="teacher-points">
-
-      <div class="teacher-point">
-        <strong>01</strong>
-        <div>
-          <h4>Диагностика</h4>
-          <p>
-            Үш дағдының қайсысына көбірек
-            назар қажет екенін анықтау.
-          </p>
+        <div class="hero-label">
+            7-СЫНЫП · ПЕДАГОГИКАЛЫҚ ИДЕЯ
         </div>
-      </div>
+
+        <h1>
+            Қауіпсіз шешім зертханасы
+        </h1>
+
+        <p>
+            Қауіпті таны → қауіпсіз қадамды таңда → көмек сұра
+        </p>
+
+    </header>
 
 
-      <div class="teacher-point">
-        <strong>02</strong>
-        <div>
-          <h4>7 минуттық жұмыс</h4>
-          <p>
-            Бір сабақта бір қысқа
-            жағдаятты талқылау.
-          </p>
+
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+
+    <nav class="navigation">
+
+        <a href="index.html"
+           class="nav-link active">
+            Басты бет
+        </a>
+
+        <a href="diagnostic.html"
+           class="nav-link">
+            Диагностика
+        </a>
+
+        <a href="situations.html"
+           class="nav-link">
+            12 жағдаят
+        </a>
+
+        <a href="practice.html"
+           class="nav-link">
+            Жаттығу
+        </a>
+
+        <a href="helper.html"
+           class="nav-link">
+            Көмекші
+        </a>
+
+        <a href="teacher.html"
+           class="nav-link">
+            Мұғалімге
+        </a>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         INTRO
+    ====================================================== -->
+
+    <section class="section-card">
+
+        <span class="eyebrow">
+            ЖОБА ТУРАЛЫ
+        </span>
+
+        <h2>
+            Ережені әрекетке айналдырамыз
+        </h2>
+
+        <p class="section-description">
+            «Қауіпсіз шешім зертханасы» — 7-сынып оқушыларына
+            күнделікті өмірде кездесуі мүмкін қауіпсіздік
+            жағдаяттарын алдын ала талдап, дұрыс әрекетті
+            жаттықтыруға арналған интерактивті зертхана.
+        </p>
+
+        <p class="section-description">
+            Оқушы дайын ережені жай оқып қана қоймайды.
+            Ол нақты жағдаятты көреді, үш әрекетті салыстырады,
+            өз шешімін таңдайды, оның себебін түсінеді және
+            сенімді ересектен қалай көмек сұрау керегін жаттықтырады.
+        </p>
+
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <div class="stat-number">
+                    12
+                </div>
+
+                <div class="stat-text">
+                    өмірде кездесетін<br>
+                    жағдаят
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-number">
+                    3
+                </div>
+
+                <div class="stat-text">
+                    әр жағдаяттағы<br>
+                    әрекет таңдауы
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-number">
+                    36
+                </div>
+
+                <div class="stat-text">
+                    салыстырылатын<br>
+                    шешім нұсқасы
+                </div>
+
+            </div>
+
         </div>
-      </div>
+
+    </section>
 
 
-      <div class="teacher-point">
-        <strong>03</strong>
-        <div>
-          <h4>Қайта жаттықтыру</h4>
-          <p>
-            Әлсіз дағды бойынша
-            сәйкес карталарды қайталау.
-          </p>
+
+    <!-- =====================================================
+         3 MAIN SKILLS
+    ====================================================== -->
+
+    <section class="section-card">
+
+        <div class="section-head">
+
+            <div>
+
+                <span class="eyebrow">
+                    ЗЕРТХАНАНЫҢ НЕГІЗІ
+                </span>
+
+                <h2>
+                    Үш негізгі қауіпсіздік дағдысы
+                </h2>
+
+            </div>
+
+
+            <p class="section-note">
+                Диагностика мен барлық жағдаяттар
+                осы үш дағдыға негізделген.
+            </p>
+
         </div>
-      </div>
 
-    </div>
 
-  </div>
 
-</section>
+        <div class="skill-grid">
+
+
+            <!-- 1 -->
+
+            <article class="skill-card">
+
+                <div class="skill-top">
+
+                    <span class="skill-number">
+                        01
+                    </span>
+
+                    <span class="skill-tag">
+                        БАЙҚА
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Қауіпті тану
+                </h3>
+
+                <p>
+                    Жағдаяттағы қауіп белгісін байқап,
+                    неге сақ болу керегін анықтау.
+                </p>
+
+
+                <div class="skill-example">
+
+                    <span>
+                        Мысал
+                    </span>
+
+                    Белгісіз аккаунт сенен
+                    жеке суретіңді сұрады.
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 2 -->
+
+            <article class="skill-card">
+
+                <div class="skill-top">
+
+                    <span class="skill-number">
+                        02
+                    </span>
+
+                    <span class="skill-tag">
+                        ТАҢДА
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Қауіпсіз әрекет
+                </h3>
+
+                <p>
+                    Үш нұсқаның ішінен өзін және
+                    басқа адамды қосымша қауіпке
+                    салмайтын алғашқы қадамды таңдау.
+                </p>
+
+
+                <div class="skill-example">
+
+                    <span>
+                        Мысал
+                    </span>
+
+                    Күмәнді сілтемені ашпай,
+                    ақпаратты тексеру.
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 3 -->
+
+            <article class="skill-card">
+
+                <div class="skill-top">
+
+                    <span class="skill-number">
+                        03
+                    </span>
+
+                    <span class="skill-tag">
+                        АЙТ
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Көмек сұрау
+                </h3>
+
+                <p>
+                    Қай ересекке жүгіну керегін анықтап,
+                    болған жағдайды қысқа әрі нақты
+                    сөйлеммен жеткізу.
+                </p>
+
+
+                <div class="skill-example">
+
+                    <span>
+                        Мысал
+                    </span>
+
+                    «Маған белгісіз адам жазып жатыр.
+                    Маған көмектесіңізші».
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         HOW IT WORKS
+    ====================================================== -->
+
+    <section class="section-card">
+
+        <span class="eyebrow">
+            ҚАЛАЙ ЖҰМЫС ІСТЕЙДІ?
+        </span>
+
+        <h2>
+            Бір жаттығу — 7 минут
+        </h2>
+
+        <p class="section-description">
+            Бір жағдаятты талдау ұзақ сабақ емес.
+            Оқушы 7 минут ішінде төрт қысқа қадамнан өтеді.
+        </p>
+
+
+        <div class="steps">
+
+
+            <div class="step">
+
+                <span class="step-time">
+                    1 минут
+                </span>
+
+                <div class="step-text">
+                    Жағдаятты мұқият оқиды
+                </div>
+
+            </div>
+
+
+            <div class="step">
+
+                <span class="step-time">
+                    2 минут
+                </span>
+
+                <div class="step-text">
+                    Үш әрекет нұсқасын салыстырады
+                </div>
+
+            </div>
+
+
+            <div class="step">
+
+                <span class="step-time">
+                    2 минут
+                </span>
+
+                <div class="step-text">
+                    Неліктен осы шешімді таңдағанын түсіндіреді
+                </div>
+
+            </div>
+
+
+            <div class="step">
+
+                <span class="step-time">
+                    2 минут
+                </span>
+
+                <div class="step-text">
+                    Ересектен көмек сұрайтын сөйлемді жаттықтырады
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         DIAGNOSTIC
+    ====================================================== -->
+
+    <section class="diagnostic-preview">
+
+
+        <!-- LEFT -->
+
+        <div class="diagnostic-copy">
+
+            <span class="light-eyebrow">
+                ЖЕКЕ ДИАГНОСТИКА
+            </span>
+
+
+            <h2>
+                Қай дағдыңды күшейту керек?
+            </h2>
+
+
+            <p>
+                Алдымен қысқа ситуациялық диагностикадан өт.
+                Жүйе дайын статистиканы көрсетпейді.
+                Нәтиже тек сенің жауаптарың бойынша есептеледі.
+            </p>
+
+
+            <div class="diagnostic-features">
+
+
+                <div>
+
+                    <strong>
+                        9
+                    </strong>
+
+                    <span>
+                        ситуациялық сұрақ
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        3
+                    </strong>
+
+                    <span>
+                        негізгі дағды
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        1
+                    </strong>
+
+                    <span>
+                        жеке ұсыныс
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <a href="diagnostic.html"
+               class="primary-btn">
+
+                Диагностиканы бастау →
+
+            </a>
+
+        </div>
+
+
+
+        <!-- RIGHT -->
+
+        <div class="diagnostic-demo">
+
+
+            <div class="demo-header">
+
+                <span>
+                    ЖЕКЕ НӘТИЖЕ
+                </span>
+
+                <div class="demo-status">
+                    Диагностика
+                </div>
+
+            </div>
+
+
+            <div class="empty-result">
+
+                <div class="empty-circle">
+                    ?
+                </div>
+
+                <h3>
+                    Нәтиже әлі есептелмеді
+                </h3>
+
+                <p>
+                    Диагностика аяқталғаннан кейін
+                    осы жерде үш дағды бойынша
+                    жеке нәтиже пайда болады.
+                </p>
+
+            </div>
+
+
+            <div class="result-placeholder">
+
+                <div class="placeholder-row">
+
+                    <span>
+                        Қауіпті тану
+                    </span>
+
+                    <div class="placeholder-line"></div>
+
+                </div>
+
+
+                <div class="placeholder-row">
+
+                    <span>
+                        Қауіпсіз әрекет
+                    </span>
+
+                    <div class="placeholder-line"></div>
+
+                </div>
+
+
+                <div class="placeholder-row">
+
+                    <span>
+                        Көмек сұрау
+                    </span>
+
+                    <div class="placeholder-line"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SITUATIONS DATABASE
+    ====================================================== -->
+
+    <section class="section-card">
+
+        <div class="section-head">
+
+            <div>
+
+                <span class="eyebrow">
+                    ЖАҒДАЯТТАР БАЗАСЫ
+                </span>
+
+                <h2>
+                    Өмірде кездесетін 12 жағдай
+                </h2>
+
+            </div>
+
+
+            <a href="situations.html"
+               class="text-link">
+
+                Барлығын ашу →
+
+            </a>
+
+        </div>
+
+
+        <p class="section-description">
+            Жағдаяттар төрт бағытқа бөлінген:
+            ауыл және жол қауіпсіздігі, онлайн кеңістік,
+            қарым-қатынас және төтенше жағдай.
+        </p>
+
+
+
+        <div class="category-grid">
+
+
+            <!-- CATEGORY 1 -->
+
+            <article class="category-card">
+
+                <div class="category-icon">
+                    01
+                </div>
+
+
+                <div>
+
+                    <span class="category-count">
+                        3 жағдаят
+                    </span>
+
+                    <h3>
+                        Ауыл және жол
+                    </h3>
+
+                    <p>
+                        Қараңғы жол, аялдамадағы
+                        бейтаныс адам және
+                        көшедегі күмәнді жағдай.
+                    </p>
+
+                </div>
+
+
+                <span class="category-arrow">
+                    →
+                </span>
+
+            </article>
+
+
+
+            <!-- CATEGORY 2 -->
+
+            <article class="category-card">
+
+                <div class="category-icon">
+                    02
+                </div>
+
+
+                <div>
+
+                    <span class="category-count">
+                        3 жағдаят
+                    </span>
+
+                    <h3>
+                        Онлайн кеңістік
+                    </h3>
+
+                    <p>
+                        Белгісіз аккаунт,
+                        сынып чаты және
+                        күмәнді сілтеме.
+                    </p>
+
+                </div>
+
+
+                <span class="category-arrow">
+                    →
+                </span>
+
+            </article>
+
+
+
+            <!-- CATEGORY 3 -->
+
+            <article class="category-card">
+
+                <div class="category-icon">
+                    03
+                </div>
+
+
+                <div>
+
+                    <span class="category-count">
+                        3 жағдаят
+                    </span>
+
+                    <h3>
+                        Қарым-қатынас
+                    </h3>
+
+                    <p>
+                        Буллинг, қорқыту,
+                        қауіпті құпия және
+                        досқа көмек көрсету.
+                    </p>
+
+                </div>
+
+
+                <span class="category-arrow">
+                    →
+                </span>
+
+            </article>
+
+
+
+            <!-- CATEGORY 4 -->
+
+            <article class="category-card">
+
+                <div class="category-icon">
+                    04
+                </div>
+
+
+                <div>
+
+                    <span class="category-count">
+                        3 жағдаят
+                    </span>
+
+                    <h3>
+                        Төтенше жағдай
+                    </h3>
+
+                    <p>
+                        Түтін, электр қаупі
+                        және жарақат алған
+                        оқушыға көмек.
+                    </p>
+
+                </div>
+
+
+                <span class="category-arrow">
+                    →
+                </span>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         INTERACTIVE EXAMPLE
+    ====================================================== -->
+
+    <section class="section-card">
+
+        <span class="eyebrow">
+            ИНТЕРАКТИВТІ ЖАТТЫҒУ
+        </span>
+
+        <h2>
+            Бір карточка қалай жұмыс істейді?
+        </h2>
+
+
+        <div class="scenario-example">
+
+
+            <!-- SITUATION -->
+
+            <div class="scenario-info">
+
+
+                <div class="scenario-meta">
+
+                    <span>
+                        ОНЛАЙН ҚАУІПСІЗДІК
+                    </span>
+
+                    <span>
+                        ЖАҒДАЯТ 05
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Сынып чатындағы келемеж
+                </h3>
+
+
+                <p>
+                    Сынып чатында бір оқушының
+                    суретін келемеждеп таратып жатыр.
+                    Саған да оны басқа чатқа
+                    жіберуді сұрады.
+                </p>
+
+
+                <div class="question-label">
+                    СЕНІҢ АЛҒАШҚЫ ӘРЕКЕТІҢ ҚАНДАЙ?
+                </div>
+
+            </div>
+
+
+
+            <!-- CHOICES -->
+
+            <div class="choice-list">
+
+
+                <div class="choice">
+
+                    <span>
+                        A
+                    </span>
+
+                    Суретті басқа достарыма да жіберемін
+
+                </div>
+
+
+                <div class="choice safe">
+
+                    <span>
+                        B
+                    </span>
+
+                    Суретті таратпаймын,
+                    оқушыны қолдап,
+                    жауапты ересекке хабарлаймын
+
+                </div>
+
+
+                <div class="choice">
+
+                    <span>
+                        C
+                    </span>
+
+                    Мазаққа қосылып,
+                    эмодзи жіберемін
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- WHY -->
+
+        <div class="answer-preview">
+
+            <div class="answer-icon">
+                ✓
+            </div>
+
+
+            <div>
+
+                <span class="answer-label">
+                    НЕГЕ БҰЛ ҚАУІПСІЗ ШЕШІМ?
+                </span>
+
+
+                <h3>
+                    Материалды әрі қарай таратпау
+                </h3>
+
+
+                <p>
+                    Келемеждейтін суретті қайта тарату
+                    жағдайды күшейтуі мүмкін.
+                    Қауіпсіз әрекет — оны таратпау,
+                    оқушыны қолдау және жауапты
+                    ересекке хабарлау.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- WHAT TO SAY -->
+
+        <div class="say-card">
+
+            <div class="quote-mark">
+                “
+            </div>
+
+
+            <div>
+
+                <span>
+                    ЕРЕСЕККЕ ҚАЛАЙ АЙТАМЫН?
+                </span>
+
+
+                <p>
+                    Сынып чатында бір оқушыны
+                    келемеждеп жатыр.
+                    Мен суретті таратпадым.
+                    Осы жағдайды тоқтатуға
+                    көмектесіңізші.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         HELPER
+    ====================================================== -->
+
+    <section class="helper-section">
+
+
+        <!-- LEFT -->
+
+        <div>
+
+            <span class="light-eyebrow">
+                ҚАУІПСІЗДІК КӨМЕКШІСІ
+            </span>
+
+
+            <h2>
+                Не істеріңді білмей тұрсың ба?
+            </h2>
+
+
+            <p>
+                Көмекші бірнеше қысқа сұрақ арқылы
+                қауіпсіз келесі қадамды таңдауға
+                және ересекке не айту керегін
+                анықтауға көмектеседі.
+            </p>
+
+
+            <a href="helper.html"
+               class="light-button">
+
+                Көмекшіні ашу →
+
+            </a>
+
+        </div>
+
+
+
+        <!-- CHAT PREVIEW -->
+
+        <div class="chat-preview">
+
+
+            <div class="chat-head">
+
+                <div class="bot-avatar">
+                    Q
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Қауіпсіздік көмекшісі
+                    </strong>
+
+                    <span>
+                        Қадамдық көмек
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="message bot">
+                Қазір саған немесе басқа адамға
+                тікелей қауіп төніп тұр ма?
+            </div>
+
+
+            <div class="quick-buttons">
+
+                <button>
+                    Иә, қазір қауіп бар
+                </button>
+
+                <button>
+                    Жоқ, бірақ алаңдап тұрмын
+                </button>
+
+                <button>
+                    Досыма көмектескім келеді
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         TEACHER
+    ====================================================== -->
+
+    <section class="section-card">
+
+
+        <div class="teacher-grid">
+
+
+            <!-- LEFT -->
+
+            <div>
+
+                <span class="eyebrow">
+                    МҰҒАЛІМ ҮШІН
+                </span>
+
+
+                <h2>
+                    Сыныпта қолдануға дайын
+                </h2>
+
+
+                <p class="section-description">
+                    Мұғалім алдымен диагностиканы
+                    қолданып, қай дағдыға көбірек
+                    назар қажет екенін анықтай алады.
+                    Кейін сол бағыттағы жағдаяттармен
+                    жұмыс жүргізеді.
+                </p>
+
+
+                <a href="teacher.html"
+                   class="outline-btn">
+
+                    Әдістемені қарау →
+
+                </a>
+
+            </div>
+
+
+
+            <!-- RIGHT -->
+
+            <div class="teacher-points">
+
+
+                <div class="teacher-point">
+
+                    <strong>
+                        01
+                    </strong>
+
+
+                    <div>
+
+                        <h4>
+                            Диагностика
+                        </h4>
+
+                        <p>
+                            Үш қауіпсіздік дағдысының
+                            бастапқы жағдайын анықтау.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="teacher-point">
+
+                    <strong>
+                        02
+                    </strong>
+
+
+                    <div>
+
+                        <h4>
+                            Жағдаятпен жұмыс
+                        </h4>
+
+                        <p>
+                            Оқушыға дайын жауап бермей,
+                            үш нұсқаны салыстыруға мүмкіндік беру.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="teacher-point">
+
+                    <strong>
+                        03
+                    </strong>
+
+
+                    <div>
+
+                        <h4>
+                            Қайта жаттықтыру
+                        </h4>
+
+                        <p>
+                            Қиындық туғызған дағды бойынша
+                            сәйкес карталарды қайталау.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FINAL CTA
+    ====================================================== -->
+
+    <section class="teacher-dark">
+
+
+        <div>
+
+            <span>
+                НЕГІЗГІ ФОРМУЛА
+            </span>
+
+
+            <h2>
+                Қауіпті таны.<br>
+                Қауіпсіз қадамды таңда.<br>
+                Көмек сұра.
+            </h2>
+
+        </div>
+
+
+        <a href="diagnostic.html"
+           class="light-button">
+
+            Зертхананы бастау →
+
+        </a>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        «Қауіпсіз шешім зертханасы» ·
+        7-сынып оқушыларына арналған педагогикалық жоба
+
+    </footer>
+
+
+</div>
+
+</body>
+</html>
